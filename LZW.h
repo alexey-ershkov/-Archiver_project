@@ -1,11 +1,11 @@
-#ifndef PROTOTIPE_HUFFMAN_H
-#define PROTOTIPE_HUFFMAN_H
-#include <vector>
+#ifndef PROTOTIPE_LZW_H
+#define PROTOTIPE_LZW_H
 
-class Huffman {
+
+class LZW {
 public:
-    Huffman();
-    ~Huffman();
+    LZW();
+    ~LZW();
     std::vector<char> Compress(const std::vector<char>& data);
     std::vector<char> Decompress(const std::vector<char>& data);
 private:
@@ -15,4 +15,4 @@ private:
 };
 
 
-#endif //PROTOTIPE_HUFFMAN_H
+#endif //PROTOTIPE_LZW_H
