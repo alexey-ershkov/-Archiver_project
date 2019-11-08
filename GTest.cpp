@@ -69,10 +69,10 @@ TEST(Presentor_test, SendEvent_testing) {
     Presentor presentor(&view);
     Event event;
     event.type = Event::test_event;
-
+    event.data = Event::testEvent();
     presentor.Subscribe(&sub, Event::test_event);
     try {
-        presentor.SendEvent(&event);
+        presentor.SendEvent(event);
         FAIL();
     }
     catch (std::invalid_argument) {

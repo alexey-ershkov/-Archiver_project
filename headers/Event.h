@@ -6,10 +6,10 @@
 #define ARCHIVER_EVENT_H
 
 
-#include <cstdio>
+
 #include <string>
-#include <set>
 #include <variant>
+
 
 struct Event {
         enum eventType {format_check_event,
@@ -46,7 +46,7 @@ struct Event {
         };
 
         eventType type;
-
+        std::variant<formatCheckEvent, compressEvent, decompressEvent, archiveEvent, dearchiveEvent, testEvent> data;
 };
 
 

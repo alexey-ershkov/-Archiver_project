@@ -31,7 +31,7 @@ public:
 
     void Subscribe(const IEventable* sub, Event::eventType type);
     void Unsubscribe(const IEventable* sub, Event::eventType type);
-    void SendEvent(const Event* event);
+    void SendEvent(const Event& event);
 
 };
 
