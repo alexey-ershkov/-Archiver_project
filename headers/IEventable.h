@@ -8,7 +8,10 @@
 #include "Event.h"
 
 class IEventable {
-    virtual void TakeEvent(Event) = 0;
+public:
+    virtual void takeEvent(Event) = 0;
+
+    virtual ~IEventable() = default;
 };
 
 

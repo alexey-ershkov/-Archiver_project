@@ -8,7 +8,9 @@
 
 class IView {
 public:
-    virtual void update() = 0;
+    virtual void update() = 0; // would be using to update QT interface
+
+    virtual ~IView() = default;
 };
 
 

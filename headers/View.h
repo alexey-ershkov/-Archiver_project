@@ -7,13 +7,14 @@
 
 #include "IView.h"
 #include "Presentor.h"
+#include "ITestable.h"
 
-class View : IView {
+class View : public IView, ITestable  {
 private:
     Presentor *presentor;
 public:
     void update();
-
+    void testThrow();
     View() {
       presentor = new Presentor(this);
     }

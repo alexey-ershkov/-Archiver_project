@@ -9,25 +9,29 @@
 #include "IEventable.h"
 #include "Event.h"
 #include "IView.h"
+#include "ITestable.h"
 
 
-class Presentor : IEventable {
+class Presentor : public IEventable, ITestable {
 private:
     std::set <IEventable*> archiver;
     std::set <IEventable*> compressor;
     std::set <IEventable*> filecheck;
+    std::set <IEventable*> test;
 
     IView *view;
 
 public:
-    void TakeEvent(Event);
+    void takeEvent(Event);
+    void testThrow();
 
     Presentor(IView *input) : view(input) {};
 
 
-    void Subscribe(IEventable* sub, Event::EventType type);
-    void Unsubscribe(IEventable* sub, Event::EventType type);
-    void SendEvent(const Event& event);
+
+    void Subscribe(const IEventable* sub, Event::eventType type);
+    void Unsubscribe(const IEventable* sub, Event::eventType type);
+    void SendEvent(const Event* event);
 
 };
 
