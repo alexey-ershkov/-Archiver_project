@@ -4,8 +4,8 @@
 
 class Huffman {
 public:
-    Huffman();
-    ~Huffman();
+    Huffman() = default;
+    ~Huffman() = default;
     std::vector<char> Compress(const std::vector<char>& data);
     std::vector<char> Decompress(const std::vector<char>& data);
 private:

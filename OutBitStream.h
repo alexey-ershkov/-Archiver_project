@@ -4,7 +4,7 @@
 
 class OutBitStream {
 public:
-    OutBitStream();
+    OutBitStream() = default;
     void WriteBit(unsigned char bit);
     void WriteByte(unsigned char byte);
 
