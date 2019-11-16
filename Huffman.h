@@ -11,7 +11,10 @@ public:
 private:
     std::vector<int> encode(const std::vector<char>& data);
     std::string decode(const std::vector<int>& data);
-
+    int dictSize;
+    char emptyBits;
+    std::vector<char> SaveDict();
+/*PMPL*/
 };
 
 

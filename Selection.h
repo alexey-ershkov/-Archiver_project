@@ -19,12 +19,11 @@ public:
 
     std::string GetAlgorithm(DataIn data_for_compression);
     bool IsCompressionDataLessOriginal(DataIn data_for_compression, DataOut data_already_compressed);
-    Data_out GetCompressedData(DataIn data_for_compression, std::string algorithm);
-    Data_out GetDecompressed_data(DataIn data_for_compression, std::string algorithm);
+    DataOut GetCompressedData(DataIn data_for_compression, std::string algorithm);
+    DataOut GetDecompressed_data(DataIn data_for_compression, std::string algorithm);
 
 private:
-    Huffman huffman_algorithm;
-    LZW lzw_algorithm;
+    // цепочка ответственности
     std::string name_of_algorithm;
 };
 
