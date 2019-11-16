@@ -4,8 +4,8 @@
 
 class LZW {
 public:
-    LZW();
-    ~LZW();
+    LZW() = default;
+    ~LZW() = default;
     std::vector<char> Compress(const std::vector<char>& data);
     std::vector<char> Decompress(const std::vector<char>& data);
 private:

@@ -16,7 +16,8 @@ struct DataOut{
 
 class Selection{
 public:
-
+    Selection() = default;
+    ~Selection() = default;
     std::string GetAlgorithm(DataIn data_for_compression);
     bool IsCompressionDataLessOriginal(DataIn data_for_compression, DataOut data_already_compressed);
     DataOut GetCompressedData(DataIn data_for_compression, std::string algorithm);
