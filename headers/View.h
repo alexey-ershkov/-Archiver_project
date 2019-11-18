@@ -5,18 +5,26 @@
 #ifndef ARCHIVER_VIEW_H
 #define ARCHIVER_VIEW_H
 
-#include "IView.h"
-#include "Presentor.h"
-#include "ITestable.h"
 
-class View : public IView, ITestable  {
+//жесткие и мягкие ссылки
+//TODO преообразовать сигналы из вне в понятные презентеру и вызвать нужные методы
+
+//TODO базовая реализация для работы интерфейса с библиотекой без qt
+
+//TODO презентор должен иметь жестку ссылку на view , а view мягкую ссылку на презентер
+
+
+
+
+#include "Presenter.h"
+
+class View  {
 private:
-    Presentor *presentor;
+
 public:
-    void update();
-    void testThrow();
+    Presenter *presenter;
     View() {
-      presentor = new Presentor(this);
+      presenter = new Presenter(this);
     }
 
 };
