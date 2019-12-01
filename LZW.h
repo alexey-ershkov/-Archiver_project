@@ -1,18 +1,18 @@
 #ifndef PROTOTIPE_LZW_H
 #define PROTOTIPE_LZW_H
 
+#include "Algorithm.h"
 
-class LZW {
+class LZW : public Algorithm {
 public:
-    LZW() = default;
+    LZW();
     ~LZW() = default;
-    std::vector<char> Compress(const std::vector<char>& data);
-    std::vector<char> Decompress(const std::vector<char>& data);
+    bool ShouldChoose(string type_file);
+    string GetName() override;
 private:
-    std::vector<int> encode(const std::vector<char>& data);
-    std::string decode(const std::vector<int>& data);
-
+    void Encode(IInputStream& original, IOutputStream& compressed);
+    void Decode(IInputStream& compressed, IOutputStream& original);
+/*PMPL*/
 };
-
 
 #endif //PROTOTIPE_LZW_H
