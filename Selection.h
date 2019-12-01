@@ -3,29 +3,31 @@
 
 #include "Huffman.h"
 #include "LZW.h"
+#include "Algorithm.h"
 
-struct DataIn{
-    FILE *file;
-    std::string type;
-};
 
-struct DataOut{
-    FILE *file;
-    std::string type;
-};
 
-class Selection{
+class Selection {
 public:
-    Selection() = default;
+    Selection(string _TypeFile);
     ~Selection() = default;
-    std::string GetAlgorithm(DataIn data_for_compression);
-    bool IsCompressionDataLessOriginal(DataIn data_for_compression, DataOut data_already_compressed);
-    DataOut GetCompressedData(DataIn data_for_compression, std::string algorithm);
-    DataOut GetDecompressed_data(DataIn data_for_compression, std::string algorithm);
+    void Compress(string input_filepath, string output_filepath);
+    void Decompress(string input_filepath, string output_filepath);
+    string GetTypeFile();
+    double GetCompressionRatio();
+    string GetNameAlgorithm();
 
 private:
+    string Name;
+    Algorithm *Algo;
+    string TypeFile;
+    string NameFileWithoutExtension;
+    string ComressedFileName;
+    void Add(unique_ptr<Algorithm> chosen_alg);
+    void ChooseAlgorithm();
+    void SetDefaultAlg();
     // цепочка ответственности
-    std::string name_of_algorithm;
+    vector<unique_ptr<Algorithm>> ArrayAlgos;
 };
 
 
