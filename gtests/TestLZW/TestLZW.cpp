@@ -94,7 +94,7 @@ TEST(SelectorTest, TestDecompressDataJpg6){
     ASSERT_EQ(true, result);
 }
 
-TEST(SelectorTest, TestDecompressDataPng9){
+TEST(LZWTest, TestDecompressDataPng9){
     LZW alg_lzw;
     alg_lzw.Decompress("../../compressed_files/test9.bin", "../../decompressed_files/test9.png");
     bool result = IsFilesEqual("../../files_for_compress/test9.png", "../../decompressed_files/test9.png");
