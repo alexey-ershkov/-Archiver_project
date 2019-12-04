@@ -7,15 +7,22 @@
 
 #include <vector>
 #include <map>
+#include <string>
+#include <boost/algorithm/string.hpp>
+#include <magic.h>
+#include <string>
+
+#define MIME_DB "/usr/share/file/magic.mgc"
 
 class TypeIdentifier{
  private:
-  std::map <std::string> <std::string> signature_list;
+  std::map <std::string, std::string> signature_list;
  public:
   TypeIdentifier();
   ~TypeIdentifier();
-  std::string SignatureDetect(FILE * raw_file);
-  std::vector<std::string> SignatureDetect(std::vector<FILE *> raw_files_list);
+
+  static std::vector<std::string> SignatureDetect(const std::vector<std::string>& list);
+  static std::string SignatureDetect (const std::string &path);
 };
 
 #endif //_TYPEIDENTIFIER_HPP_

@@ -4,26 +4,28 @@
 
 #include "TypeIdentifier.hpp"
 
-TypeIdentifier::TypeIdentifier ()
-{
+TypeIdentifier::TypeIdentifier () = default;
+TypeIdentifier::~TypeIdentifier () = default;
 
+std::string TypeIdentifier::SignatureDetect(const std::string& path){
+  const char * spath = path.c_str();
+
+  auto handle = magic_open(MAGIC_MIME_TYPE);
+  magic_load(handle, MIME_DB);
+
+  std::string type = magic_file (handle, spath);
+  std::vector<std::string> out;
+  boost::split(out, type, [](char c){return c == '/';});
+
+  return out[1];
 }
 
-TypeIdentifier::~TypeIdentifier ()
-{
 
-}
+std::vector<std::string> TypeIdentifier::SignatureDetect(const std::vector<std::string>& list){
+  std::vector<std::string> out;
 
-std::string TypeIdentifier::SignatureDetect (FILE *raw_file)
-{
-  std::string out;
-
-  return out;
-}
-
-std::vector<string> TypeIdentifier::SignatureDetect (std::vector<FILE *> raw_files_list)
-{
-  std::vector<string> out;
-
+  for(const auto & it : list){
+      out.push_back(SignatureDetect (it));
+    }
   return out;
 }
