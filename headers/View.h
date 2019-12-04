@@ -10,8 +10,10 @@
 
 #include "Request.h"
 #include "Presenter.h"
+#include "Message.h"
 #include <zconf.h>
 #include <algorithm>
+
 
 enum update_action {SHOW, ARCHIVE, DEARCHIVE, CLOSE, DEFAULT};
 
@@ -19,13 +21,14 @@ class View  {
 private:
     Presenter *presenter;
     std::vector<std::string> read_files ();
-    bool file_exists(const char *fname)
+    bool file_exists(const char *filename)
     {
-        return access(fname, 0) != -1;
+        return access(filename, 0) != -1;
     }
     std::string read_file();
 public:
-    //TODO метод для отображения сообщений о результате запроса
+    virtual void send_message (Message message);
+    virtual void show_files (std::vector<std::string>);
     View() {
       presenter = new Presenter(this);
     }

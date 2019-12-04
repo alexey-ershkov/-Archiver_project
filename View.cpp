@@ -53,9 +53,10 @@ update_action View::archive_screen() {
     if (select == 1) {
         std::vector<std::string> files = read_files();
         ////Заполнение запроса
-        Request request_to_check;
-        request_to_check.type = Request::archive;
-        request_to_check.filenames = files;
+        Request request;
+        request.type = Request::archive;
+        request.filenames = files;
+        presenter->send_request(request);
         //TODO дописать формиррование запроса
     }
     return update_action::DEFAULT;
@@ -130,5 +131,36 @@ std::string View::read_file() {
     return out;
 }
 
+void View::send_message(Message message) {
+    switch (message.type) {
+        case Message::success:
+            std::cout << "Success: " << message.message_text << std::endl;
+            break;
+        case Message::warning:
+            std::cout << "Warning: " << message.message_text << std::endl;
+            break;
+        case Message::error:
+            std::cout << "Error: " << message.message_text << std::endl;
+            break;
+    }
+}
 
+void View::show_files(std::vector<std::string> files) {
+    int numeration = 1;
+    std::cout << "\n============================\n";
+    std::cout << "These files are in archive:" <<  std::endl;
+    for (auto file : files)
+        std::cout << numeration++ <<") " << file << std::endl;
+    std::cout << "============================\n\n";
+}
+
+////Облочка над функциями для работы презентера, чтобы разрешить конфликт incomplete type
+
+void Presenter::view_sender(Message message) {
+    view->send_message(message);
+}
+
+void Presenter::view_sender(std::vector<std::string> input) {
+    view->show_files(input);
+}
 
