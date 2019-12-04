@@ -10,7 +10,7 @@
 
 class Archive : public IHandler {
 public:
-    void handle(Request) override;
+    ModelResponse<> handle(Request) override;
     bool can_handle(Request) override;
 };
 

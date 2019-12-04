@@ -6,10 +6,11 @@
 #define ARCHIVER_IHANDLER_H
 
 #include "Request.h"
+#include "ModelResponse.h"
 
 class IHandler {
 public:
-    virtual void handle(Request) = 0;
+    virtual ModelResponse<> handle(Request) = 0; //TODO универсальная реализация
     virtual bool can_handle(Request) = 0;
     virtual ~IHandler() = default;
 };

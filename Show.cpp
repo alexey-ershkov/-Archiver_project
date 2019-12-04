@@ -4,7 +4,7 @@
 
 #include "Show.h"
 
-void Show::handle(Request request) {
+ModelResponse<> Show::handle(Request request) {
     std::cout << "Show handle" << std::endl;
     // вызов функции сжатия здесь
 }

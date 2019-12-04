@@ -11,6 +11,7 @@
 #include "Archive.h"
 #include "Dearchive.h"
 #include "Message.h"
+#include "ModelResponse.h"
 
 
 class View;
@@ -18,7 +19,7 @@ class View;
 class Presenter {
 private:
     std::vector<IHandler*> handlers;
-    View *view;
+    View *view; //TODO добавить умный указатели в проект и RAII-обёртки
 public:
 
     Presenter (View *input) : view(input) {

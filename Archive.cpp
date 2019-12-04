@@ -4,9 +4,12 @@
 
 #include "Archive.h"
 
-void Archive::handle(Request request) {
+ModelResponse<> Archive::handle(Request request) {
     std::cout << "Archive handle" << std::endl;
-    // вызов функции архивации здесь
+    ModelResponse<> response;
+    response.state  = ModelResponse<>::ok;
+    response.data.emplace_back("It can handle it");
+    return response;
 }
 
 bool Archive::can_handle(Request request) {

@@ -9,9 +9,10 @@
 void Presenter::send_request(Request request) {
     for (auto it : handlers) {
         if (it->can_handle(request)) {
-            it->handle(request);
-            //TODO реализовать общение между presenter и модулями (может есть смысл писать на try catch)
-            //TODO расширить IHandle, что-то вроде функции response
+            ModelResponse<> response =  it->handle(request);
+            std::cout << response.state << std::endl;
+            for (auto it : response.data)
+                std::cout << it << std::endl;
         }
     }
 }

@@ -34,7 +34,7 @@ update_action View::show_screen() {
         std::cin >> select;
     }
     if (select == 1) {
-        //TODO сформировать запрос
+        //TODO сформировать запрос и проверить то, что принимает файл .tprk
     }
     return update_action::DEFAULT;
 }
@@ -78,7 +78,7 @@ update_action View::dearchive_screen() {
         if (archive_file == "exit")
             return update_action::DEFAULT;
         else {
-            //TODO сформировать запрос
+            //TODO сформировать запрос и провреить, что .tprk
         }
     }
     return update_action::DEFAULT;

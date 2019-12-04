@@ -7,7 +7,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(headers/)
 
-add_executable(ArchiverEngine main.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
+add_executable(ArchiverEngine main.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp headers/ModelResponse.h)
 
 
 

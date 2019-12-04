@@ -3,7 +3,7 @@
 //
 
 #include "Dearchive.h"
-void Dearchive::handle(Request request) {
+ModelResponse<> Dearchive::handle(Request request) {
 std::cout << "Dearchive handle" << std::endl;
 // вызов функции деархивации здесь
 }
