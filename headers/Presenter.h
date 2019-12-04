@@ -7,13 +7,11 @@
 
 
 #include "IHandler.h"
-#include "Encode.h"
-#include "Decode.h"
+#include "Show.h"
 #include "Archive.h"
 #include "Dearchive.h"
-#include "TypeCheck.h"
 
-// TODO добавить сюда массив с обработчиками и проходиться по нему вместо того, чтобы сеттить следующего
+
 class View;
 
 class Presenter {
@@ -23,16 +21,12 @@ private:
 public:
     void send_request(Request);
     Presenter (View *input) : view(input) {
-        auto encode  = new Encode;
-        auto decode = new Decode;
+        auto show  = new Show;
         auto archive = new Archive;
         auto dearchive = new Dearchive;
-        auto type_check = new TypeCheck;
-        handlers.push_back(encode);
-        handlers.push_back(decode);
         handlers.push_back(archive);
         handlers.push_back(dearchive);
-        handlers.push_back(type_check);
+        handlers.push_back(show);
     };
 
 };
