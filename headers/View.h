@@ -26,11 +26,15 @@ private:
         return access(filename, 0) != -1;
     }
     std::string read_file();
+    size_t get_int();
+    Message selection_error;
 public:
     virtual void send_message (Message message);
     virtual void show_files (std::vector<std::string>);
     View() {
       presenter = new Presenter(this);
+      selection_error.type = Message::error;
+      selection_error.message_text = "Wrong selection. Please try again";
     }
 
     update_action update(enum update_action);

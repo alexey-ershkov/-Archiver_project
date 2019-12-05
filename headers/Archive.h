@@ -7,6 +7,7 @@
 
 
 #include "IHandler.h"
+#include <stdexcept>
 
 
 class Archive : public IHandler<> {

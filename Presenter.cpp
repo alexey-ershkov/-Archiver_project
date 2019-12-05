@@ -10,9 +10,15 @@ void Presenter::send_request(Request request) {
     for (auto it : handlers) {
         if (it->can_handle(request)) {
             ModelResponse response =  it->handle(request);
-            std::cout << response.state << std::endl;
-            for (auto it : response.data)
-                std::cout << it << std::endl;
+            if (response.state == ModelResponse<>::ok) {
+                Message message;
+                message.type = Message::ok;
+                message.message_text = response.info;
+                view_sender(message);
+                if (!response.data.empty())
+                    view_sender(response.data);
+                return;
+            }
         }
     }
     ////В случае нового вида возврата данных дописать здесь

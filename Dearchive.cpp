@@ -4,8 +4,26 @@
 
 #include "Dearchive.h"
 ModelResponse<> Dearchive::handle(Request request) {
-std::cout << "Dearchive handle" << std::endl;
-// вызов функции деархивации здесь
+    ModelResponse<> response;
+
+    try {
+        ////Вызов алгоритмов деархивации
+        /// и расжатия
+    }
+    catch (std::invalid_argument& exept) {
+        response.state = ModelResponse<>::error;
+        response.info = exept.what();
+        return response;
+    }
+    catch(...) {
+        response.state = ModelResponse<>::error;
+        response.info = "Can't dearchive files";
+        return response;
+    }
+
+    response.state  = ModelResponse<>::ok;
+    response.info = "File(s) successfully dearchived";
+    return response;
 }
 
 bool Dearchive::can_handle(Request request) {

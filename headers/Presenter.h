@@ -23,7 +23,7 @@ private:
     /// и определяем поведение в send_request
     /// в данной реализации хватает работы с ветором строк
     std::vector<IHandler<>*> handlers;
-    View *view; //TODO добавить умный указатели в проект и RAII-обёртки
+    View *view; //TODO добавить умный указатели в проект
 public:
 
     Presenter (View *input) : view(input) {

@@ -8,7 +8,7 @@
 #include <string>
 
 struct Message {
-    enum message_type {success, warning, error};
+    enum message_type {ok, warning, error};
     message_type type;
     std::string message_text;
 };

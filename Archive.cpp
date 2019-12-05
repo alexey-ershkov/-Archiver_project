@@ -5,10 +5,26 @@
 #include "Archive.h"
 
 ModelResponse<> Archive::handle(Request request) {
-    std::cout << "Archive handle" << std::endl;
     ModelResponse<> response;
+
+    try {
+        ////Вызов алгоритмов на проверку типа данных
+        /// Сжатия
+        /// И Архивации
+    }
+    catch (std::invalid_argument& exept) {
+        response.state = ModelResponse<>::error;
+        response.info = exept.what();
+        return response;
+    }
+    catch(...) {
+        response.state = ModelResponse<>::error;
+        response.info = "Can't archive files";
+        return response;
+    }
+
     response.state  = ModelResponse<>::ok;
-    response.data.emplace_back("It can handle it");
+    response.info = "File(s) successfully archived";
     return response;
 }
 
