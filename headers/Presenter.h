@@ -12,13 +12,17 @@
 #include "Dearchive.h"
 #include "Message.h"
 #include "ModelResponse.h"
+#include <map>
 
 
 class View;
 
 class Presenter {
 private:
-    std::vector<IHandler*> handlers;
+    ////для обработки IHandle с другим типом данных просто добавляем новый вектор
+    /// и определяем поведение в send_request
+    /// в данной реализации хватает работы с ветором строк
+    std::vector<IHandler<>*> handlers;
     View *view; //TODO добавить умный указатели в проект и RAII-обёртки
 public:
 

@@ -8,7 +8,8 @@
 
 #include "IHandler.h"
 
-class Archive : public IHandler {
+
+class Archive : public IHandler<> {
 public:
     ModelResponse<> handle(Request) override;
     bool can_handle(Request) override;

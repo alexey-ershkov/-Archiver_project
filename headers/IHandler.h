@@ -8,12 +8,16 @@
 #include "Request.h"
 #include "ModelResponse.h"
 
+
+template <typename T = std::vector<std::string>>
 class IHandler {
 public:
-    virtual ModelResponse<> handle(Request) = 0; //TODO универсальная реализация
+    virtual ModelResponse<T> handle(Request) = 0;
     virtual bool can_handle(Request) = 0;
     virtual ~IHandler() = default;
 };
+
+
 
 
 #endif //ARCHIVER_IHANDLER_H
