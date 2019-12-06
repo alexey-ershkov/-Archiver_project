@@ -4,16 +4,17 @@
 
 #include "Archiver.hpp"
 
-std::vector<DataOut> Archiver::Read (DataIn archive)
-{
-  std::vector <DataOut> out;
 
-  return out;
+std::string Archiver::Pack (std::map<std::string, std::string> compressed_data)
+{
+  return std::__cxx11::string ();
+}
+std::map<std::string, std::string> Archiver::Unpack (std::string path_to_archive)
+{
+  return std::map<std::string, std::string> ();
 }
 
-DataOut Archiver::Write (std::vector<DataIn> compressed_data)
+std::map<std::string, std::string> Archiver::Read (std::string path_to_archive)
 {
-  DataOut out;
-
-  return out;
+  return std::map<std::string, std::string> ();
 }
