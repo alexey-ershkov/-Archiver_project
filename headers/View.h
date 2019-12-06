@@ -13,13 +13,14 @@
 #include "Message.h"
 #include <zconf.h>
 #include <algorithm>
+#include <memory>
 
 
 enum update_action {SHOW, ARCHIVE, DEARCHIVE, CLOSE, DEFAULT};
 
 class View  {
 private:
-    Presenter *presenter;
+    std::unique_ptr<Presenter> presenter;
     std::vector<std::string> read_files ();
     bool file_exists(const char *filename)
     {
@@ -32,7 +33,7 @@ public:
     virtual void send_message (Message message);
     virtual void show_files (std::vector<std::string>);
     View() {
-      presenter = new Presenter(this);
+      presenter = std::make_unique<Presenter>(this);
       selection_error.type = Message::error;
       selection_error.message_text = "Wrong selection. Please try again";
     }

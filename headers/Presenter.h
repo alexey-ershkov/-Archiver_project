@@ -13,6 +13,7 @@
 #include "Message.h"
 #include "ModelResponse.h"
 #include <map>
+#include <memory>
 
 
 class View;
@@ -22,14 +23,16 @@ private:
     ////для обработки IHandle с другим типом данных просто добавляем новый вектор
     /// и определяем поведение в send_request
     /// в данной реализации хватает работы с ветором строк
-    std::vector<IHandler<>*> handlers;
-    View *view; //TODO добавить умный указатели в проект
+    std::vector<std::shared_ptr<IHandler<>>> handlers;
+    //не смог разрешить циклическую ссылку через shared_ptr и weak_ptr, т.к.
+    // view удалаяется до обращения к нему по weak_ptr
+    View *view; //TODO добавить pimpl в проект
 public:
 
     Presenter (View *input) : view(input) {
-        auto show  = new Show;
-        auto archive = new Archive;
-        auto dearchive = new Dearchive;
+        auto show  = std::make_shared<Show>();
+        auto archive = std::make_shared<Archive>();
+        auto dearchive = std::make_shared<Dearchive>();
         handlers.push_back(archive);
         handlers.push_back(dearchive);
         handlers.push_back(show);
