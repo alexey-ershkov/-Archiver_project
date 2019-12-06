@@ -9,18 +9,18 @@
 
 
 #include "Request.h"
-#include "Presenter.h"
 #include "Message.h"
 #include <zconf.h>
 #include <algorithm>
 #include <memory>
 
+class Presenter;
 
 enum update_action {SHOW, ARCHIVE, DEARCHIVE, CLOSE, DEFAULT};
 
 class View  {
 private:
-    std::unique_ptr<Presenter> presenter;
+    std::shared_ptr<Presenter> presenter;
     std::vector<std::string> read_files ();
     bool file_exists(const char *filename)
     {
@@ -32,11 +32,7 @@ private:
 public:
     virtual void send_message (Message message);
     virtual void show_files (std::vector<std::string>);
-    View() {
-      presenter = std::make_unique<Presenter>(this);
-      selection_error.type = Message::error;
-      selection_error.message_text = "Wrong selection. Please try again";
-    }
+    View();
 
     update_action update(enum update_action);
 

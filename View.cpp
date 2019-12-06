@@ -3,6 +3,7 @@
 //
 
 #include "View.h"
+#include "Presenter.h"
 
 #define line std::cout << "\n==========================================\n\n"
 
@@ -204,6 +205,12 @@ size_t View::get_int() {
         std::cin >> input;
     }
     return input;
+}
+
+View::View() {
+        presenter = std::make_shared<Presenter>(this);
+        selection_error.type = Message::error;
+        selection_error.message_text = "Wrong selection. Please try again";
 }
 
 ////Облочка над функциями для работы презентера, чтобы разрешить конфликт incomplete type
