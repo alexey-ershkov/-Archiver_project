@@ -1,5 +1,6 @@
 //
 // Created by Алексей on 2019-11-08.
+// Можно добавить библотеку ncurses для более приветливого отображения интерфейса
 //
 
 #ifndef ARCHIVER_VIEW_H
@@ -13,6 +14,8 @@
 #include <zconf.h>
 #include <algorithm>
 #include <memory>
+#include <cstdlib>
+#include <sys/ioctl.h>
 
 class Presenter;
 
@@ -20,6 +23,8 @@ enum update_action {SHOW, ARCHIVE, DEARCHIVE, CLOSE, DEFAULT};
 
 class View  {
 private:
+    bool is_term = false;
+    struct winsize w;
     std::shared_ptr<Presenter> presenter;
     std::vector<std::string> read_files (std::istream& , std::ostream&);
     bool file_exists(const char *filename)
@@ -30,9 +35,15 @@ private:
     size_t get_int(std::istream&, std::ostream&);
     Message selection_error;
 public:
+    void system_clear();
+    void system_pause();
+    std::string set_center(std::ostream&);
+
+
     virtual bool send_message (Message message, std::ostream&);
     virtual bool show_files (std::vector<std::string>, std::ostream&);
     View();
+    View(bool);
 
     update_action update(enum update_action, std::istream&, std::ostream&);
 
