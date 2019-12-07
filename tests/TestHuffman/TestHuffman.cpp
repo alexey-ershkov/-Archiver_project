@@ -64,7 +64,7 @@ TEST(HuffmanTest, TestCompressDataTxt1){
     Output output("../../compressed_files/test1.bin");
     alg_huffman.Compress(input, output);
 
-    Input _input("../../files_for_compress/test1.bin");
+    Input _input("../../compressed_files/test1.bin");
     Output _output("../../decompressed_files/test1.txt");
     alg_huffman.Decompress(_input, _output);
 
@@ -77,7 +77,7 @@ TEST(HuffmanTest, TestCompressDataTxt2){
     Output output("../../compressed_files/test2.bin");
     alg_huffman.Compress(input, output);
 
-    Input _input("../../files_for_compress/test2.bin");
+    Input _input("../../compressed_files/test2.bin");
     Output _output("../../decompressed_files/test2.txt");
     alg_huffman.Decompress(_input, _output);
 
@@ -92,7 +92,7 @@ TEST(HuffmanTest, TestCompressDataJpg6){
     Output output("../../compressed_files/test6.bin");
     alg_huffman.Compress(input, output);
 
-    Input _input("../../files_for_compress/test6.bin");
+    Input _input("../../compressed_files/test6.bin");
     Output _output("../../decompressed_files/test6.jpg");
     alg_huffman.Decompress(_input, _output);
 
@@ -108,7 +108,7 @@ TEST(HuffmanTest, TestCompressDataPng9){
     Output output("../../compressed_files/test9.bin");
     alg_huffman.Compress(input, output);
 
-    Input _input("../../files_for_compress/test9.bin");
+    Input _input("../../compressed_files/test9.bin");
     Output _output("../../decompressed_files/test9.zip");
     alg_huffman.Decompress(_input, _output);
 
@@ -122,7 +122,7 @@ TEST(HuffmanTest, TestCompressDataZip10){
     Output output("../../compressed_files/test10.bin");
     alg_huffman.Compress(input, output);
 
-    Input _input("../../files_for_compress/test10.bin");
+    Input _input("../../compressed_files/test10.bin");
     Output _output("../../decompressed_files/test10.zip");
     alg_huffman.Decompress(_input, _output);
 
