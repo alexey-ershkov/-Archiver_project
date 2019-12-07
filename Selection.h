@@ -9,25 +9,26 @@
 
 class Selection {
 public:
-    Selection(string _TypeFile);
+    Selection(std::string _typeFile);
     ~Selection() = default;
-    void Compress(string input_filepath, string output_filepath);
-    void Decompress(string input_filepath, string output_filepath);
-    string GetTypeFile();
+    double Compress(std::string input_filepath, std::string output_filepath);
+    void Decompress(std::string input_filepath, std::string output_filepath);
+    std::string GetTypeFile();
     double GetCompressionRatio();
-    string GetNameAlgorithm();
+    std::string GetNameAlgorithm();
 
 private:
-    string Name;
-    Algorithm *Algo;
-    string TypeFile;
-    string NameFileWithoutExtension;
-    string ComressedFileName;
-    void Add(unique_ptr<Algorithm> chosen_alg);
+    std::string name;
+    std::shared_ptr<Algorithm> algo;
+    std::string typeFile;
+    std::string nameFileWithoutExtension;
+    std::string comressedFileName;
+    bool IsOrigLessCompr(double size_compressed_f, double size_origin_f);
+    void Add(std::shared_ptr<Algorithm> chosen_alg);
     void ChooseAlgorithm();
     void SetDefaultAlg();
     // цепочка ответственности
-    vector<unique_ptr<Algorithm>> ArrayAlgos;
+    std::vector<std::shared_ptr<Algorithm>> arrayAlgos;
 };
 
 

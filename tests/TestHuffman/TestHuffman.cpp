@@ -2,6 +2,8 @@
 #include <Huffman.h>
 #include <iostream>
 
+using namespace std;
+
 bool IsFilesEqual(string input_filepath, string output_filepath) {
     ifstream fin1(input_filepath, ios::binary);
     ifstream fin2(output_filepath, ios::binary);
@@ -58,88 +60,77 @@ TEST(HuffmanTest, TestGetName2){
 
 TEST(HuffmanTest, TestCompressDataTxt1){
     Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test1.txt", "../../compressed_files/test1.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
+    Input input("../../files_for_compress/test1.txt");
+    Output output("../../compressed_files/test1.bin");
+    alg_huffman.Compress(input, output);
+
+    Input _input("../../files_for_compress/test1.bin");
+    Output _output("../../decompressed_files/test1.txt");
+    alg_huffman.Decompress(_input, _output);
+
+    bool result = IsFilesEqual("../../files_for_compress/test1.txt", "../../decompressed_files/test1.txt");
+    ASSERT_EQ(true, result);
 }
 TEST(HuffmanTest, TestCompressDataTxt2){
     Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test2.txt", "../../compressed_files/test2.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
-}
-TEST(HuffmanTest, TestCompressDataTxt3){
-    Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test3.txt", "../../compressed_files/test3.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
+    Input input("../../files_for_compress/test2.txt");
+    Output output("../../compressed_files/test2.bin");
+    alg_huffman.Compress(input, output);
+
+    Input _input("../../files_for_compress/test2.bin");
+    Output _output("../../decompressed_files/test2.txt");
+    alg_huffman.Decompress(_input, _output);
+
+    bool result = IsFilesEqual("../../files_for_compress/test2.txt", "../../decompressed_files/test2.txt");
+    ASSERT_EQ(true, result);
 }
 
-TEST(HuffmanTest, TestCompressDataTxt4){
-    Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test4.txt", "../../compressed_files/test4.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
-}
-
-TEST(HuffmanTest, TestCompressDataTxt5){
-    Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test5.txt", "../../compressed_files/test5.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
-}
 
 TEST(HuffmanTest, TestCompressDataJpg6){
     Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test6.jpg", "../../compressed_files/test6.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
+    Input input("../../files_for_compress/test6.jpg");
+    Output output("../../compressed_files/test6.bin");
+    alg_huffman.Compress(input, output);
+
+    Input _input("../../files_for_compress/test6.bin");
+    Output _output("../../decompressed_files/test6.jpg");
+    alg_huffman.Decompress(_input, _output);
+
+    bool result = IsFilesEqual("../../files_for_compress/test6.jpg", "../../decompressed_files/test6.jpg");
+    ASSERT_EQ(true, result);
 }
 
 
 
 TEST(HuffmanTest, TestCompressDataPng9){
     Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test9.png", "../../compressed_files/test9.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
+    Input input("../../files_for_compress/test9.png");
+    Output output("../../compressed_files/test9.bin");
+    alg_huffman.Compress(input, output);
+
+    Input _input("../../files_for_compress/test9.bin");
+    Output _output("../../decompressed_files/test9.zip");
+    alg_huffman.Decompress(_input, _output);
+
+    bool result = IsFilesEqual("../../files_for_compress/test9.zip", "../../decompressed_files/test9.zip");
+    ASSERT_EQ(true, result);
 }
 
 TEST(HuffmanTest, TestCompressDataZip10){
     Huffman alg_huffman;
-    alg_huffman.Compress("../../files_for_compress/test10.zip", "../../compressed_files/test10.bin");
-    ASSERT_EQ(true, alg_huffman.GetCompressionRatio() <= 1);
-}
+    Input input("../../files_for_compress/test10.zip");
+    Output output("../../compressed_files/test10.bin");
+    alg_huffman.Compress(input, output);
 
-TEST(HuffmanTest, TestDecompressDataTxt1){
-    Huffman alg_huffman;
-    alg_huffman.Decompress("../../compressed_files/test1.bin", "../../decompressed_files/test1.txt");
-    bool result = IsFilesEqual("../../files_for_compress/test1.txt", "../../decompressed_files/test1.txt");
-    ASSERT_EQ(true, result);
+    Input _input("../../files_for_compress/test10.bin");
+    Output _output("../../decompressed_files/test10.zip");
+    alg_huffman.Decompress(_input, _output);
 
-}
-
-
-TEST(HuffmanTest, TestDecompressDataTxt2){
-    Huffman alg_huffman;
-    alg_huffman.Decompress("../../compressed_files/test2.bin", "../../decompressed_files/test2.txt");
-    bool result = IsFilesEqual("../../files_for_compress/test2.txt", "../../decompressed_files/test2.txt");
-    ASSERT_EQ(true, result);
-}
-TEST(HuffmanTest, TestDecompressDataTxt3) {
-    Huffman alg_huffman;
-    alg_huffman.Decompress("../../compressed_files/test3.bin", "../../decompressed_files/test3.txt");
-    bool result = IsFilesEqual("../../files_for_compress/test3.txt", "../../decompressed_files/test3.txt");
+    bool result = IsFilesEqual("../../files_for_compress/test10.zip", "../../decompressed_files/test10.zip");
     ASSERT_EQ(true, result);
 }
 
-TEST(HuffmanTest, TestDecompressDataTxt4){
-    Huffman alg_huffman;
-    alg_huffman.Decompress("../../compressed_files/test4.bin", "../../decompressed_files/test4.txt");
-    bool result = IsFilesEqual("../../files_for_compress/test4.txt", "../../decompressed_files/test4.txt");
-    ASSERT_EQ(true, result);
 
-}
-
-TEST(HuffmanTest, TestDecompressDataTxt5){
-    Huffman alg_huffman;
-    alg_huffman.Decompress("../../compressed_files/test5.bin", "../../decompressed_files/test5.txt");
-    bool result = IsFilesEqual("../../files_for_compress/test5.txt", "../../decompressed_files/test5.txt");
-    ASSERT_EQ(true, result);
-}
 
 
 

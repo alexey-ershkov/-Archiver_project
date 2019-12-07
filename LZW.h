@@ -7,11 +7,12 @@ class LZW : public Algorithm {
 public:
     LZW();
     ~LZW() = default;
-    bool ShouldChoose(string type_file);
-    string GetName() override;
+    bool ShouldChoose(std::string type_file);
+    std::string GetName() override;
 private:
-    void Encode(IInputStream& original, IOutputStream& compressed);
-    void Decode(IInputStream& compressed, IOutputStream& original);
+    void CopyStream(IInputStream& input, IOutputStream& output);
+    void Encode(IInputStream& original, IOutputStream& compressed) override;
+    void Decode(IInputStream& compressed, IOutputStream& original) override;
 /*PMPL*/
 };
 

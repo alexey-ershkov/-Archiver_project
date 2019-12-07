@@ -1,24 +1,25 @@
 #include "Huffman.h"
 
+using namespace std;
 
-
-Huffman::Huffman() {
+Huffman::Huffman(): cellSize(8), cellSizeBinary(256) {
 
 }
 
 bool Huffman::ShouldChoose(string type_file) {
     vector<string> Formats = {"txt", "rtf", "doc", "docx", "html", "pdf", "odt"};
-    for(auto &it : Formats){
-        if(type_file == it){
-            return true;
-        }
+    auto it = find(Formats.begin(), Formats.end(), type_file);
+    if(it != Formats.end()) {
+        return true;
     }
-    return false;
+    else {
+        return false;
+    }
 }
 
 
 
-void Huffman::buildTable(Node *root, vector<bool> &bits, map<char, vector<bool> > &code) {
+void Huffman::buildTable(shared_ptr<Node> root, vector<bool> &bits, map<char, vector<bool> > &code) {
     if (!root) return;
 
     if (!root->left && !root->right) {
@@ -37,7 +38,7 @@ void Huffman::buildTable(Node *root, vector<bool> &bits, map<char, vector<bool> 
     bits.pop_back();
 }
 
-void Huffman::WriteTree(Node * root, IOutputStream& compressed){
+void Huffman::WriteTree(shared_ptr<Node> root, IOutputStream& compressed){
     if (!root){
         return;
     }
@@ -50,16 +51,15 @@ void Huffman::WriteTree(Node * root, IOutputStream& compressed){
         compressed.Write('0');
     }
 }
-Node * Huffman::ReadTree(IInputStream& compressed){
+shared_ptr<Node> Huffman::ReadTree(IInputStream& compressed){
     unsigned char charSize;
     int intSize;
     compressed.Read(charSize);
     intSize = (unsigned char)charSize;
     compressed.Read(charSize);
-    intSize += (int)((unsigned char)charSize) << 8;
+    intSize += (int)((unsigned char)charSize) << cellSize;
 
-//    cout << "alphabet size " << intSize << endl;
-    stack<Node *> s;
+    stack<shared_ptr<Node>> s;
     int currSize = 0;
     unsigned char c;
 
@@ -68,19 +68,19 @@ Node * Huffman::ReadTree(IInputStream& compressed){
         if (c == '1') {
             compressed.Read(c);
             ++currSize;
-            Node * newNode = new Node(c);
+            shared_ptr<Node> newNode(new Node(c));
             s.push(newNode);
         } else if (c == '0'){
-            Node * node1 = s.top();
+            shared_ptr<Node> node1 = s.top();
             s.pop();
-            Node * node2 = s.top();
+            shared_ptr<Node> node2 = s.top();
             s.pop();
 
-            Node * newNode = new Node(node2, node1);
+            shared_ptr<Node> newNode(new Node(node2, node1));
             s.push(newNode);
         }
     }
-    Node * root;
+    shared_ptr<Node> root = nullptr;
     if (!s.empty()) root = s.top();
     s.pop();
     return root;
@@ -99,10 +99,10 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
     }
 
     // составление списка
-    std::list<Node*> l;
+    std::list<shared_ptr<Node>> l;
 
     for (map<char, int>::iterator it = freqs.begin(); it != freqs.end() ; ++it ) {
-        Node * node = new Node(it->first, it->second, 0, 0);
+        shared_ptr<Node> node(new Node(it->first, it->second, 0, 0));
         l.push_back(node);
     }
 
@@ -110,19 +110,17 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
     if (l.size() == 0) return;
     while(l.size() != 1) {
         l.sort(nodeComparator());
-        Node * left = l.front();
+        shared_ptr<Node> left = l.front();
         l.pop_front();
 
-        Node * right = l.front();
+        shared_ptr<Node> right = l.front();
         l.pop_front();
-        Node * parent = new Node(0, left->freq + right->freq, left, right);
+        shared_ptr<Node> parent(new Node(0, left->freq + right->freq, left, right));
         l.push_back(parent);
     }
 
 
-    Node * root = l.front();
-
-
+    shared_ptr<Node> root = l.front();
 
     //построение кода Хаффмана
     vector<bool> bits;
@@ -135,14 +133,14 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
 
 
     size_t fileSize = file.size();
-    for (int i = 0; i < 8; ++i) {
-        unsigned char ch = (fileSize >> (i * 8));
+    for (int i = 0; i < cellSize; ++i) {
+        unsigned char ch = (fileSize >> (i * cellSize));
         compressed.Write(ch);
     }
 
     int size = code.size();
     compressed.Write(size);
-    compressed.Write(size >> 8);
+    compressed.Write(size >> cellSize);
 
     WriteTree(root, compressed);
 
@@ -152,9 +150,9 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
         ++strPtr;
         vector<bool> x = code[c];
         for (int n = 0; n < x.size(); ++n) {
-            buf = buf | (x[n] << (7 - count));
+            buf = buf | (x[n] << ((cellSize - 1) - count));
             ++count;
-            if (count == 8) {
+            if (count == cellSize) {
                 count = 0;
                 compressed.Write(buf);
 
@@ -165,7 +163,6 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
 
     compressed.Write(buf);
 
-    delete root;
 }
 
 void Huffman::Decode( IInputStream& compressed, IOutputStream& original ){
@@ -174,14 +171,14 @@ void Huffman::Decode( IInputStream& compressed, IOutputStream& original ){
     for (int k = 0; k < 8; ++k) {
         unsigned char ch;
         compressed.Read(ch);
-        if (ch > 0) {fileSize += pow(256, k) * ch;}
-        else if (ch < 0) fileSize += pow(256, k) * (256 + ch);
+        if (ch > 0) {fileSize += pow(cellSizeBinary, k) * ch;}
+        else if (ch < 0) fileSize += pow(cellSizeBinary, k) * (pow(2, cellSize) + ch);
     }
 
 
 
-    Node * root = ReadTree(compressed);
-    Node * node = root;
+    shared_ptr<Node> root = ReadTree(compressed);
+    shared_ptr<Node> node = root;
     if (!root) return;
 
     //построение кода Хаффмана
@@ -197,7 +194,7 @@ void Huffman::Decode( IInputStream& compressed, IOutputStream& original ){
 
     while(filePtr < fileSize)
     {
-        bool b = c & (1 << (7 - count++) );
+        bool b = c & (1 << ((cellSize -1) - count++) );
         if (b) node = node->right;
         else node = node->left;
         if (!node) return;
@@ -207,16 +204,14 @@ void Huffman::Decode( IInputStream& compressed, IOutputStream& original ){
             ++filePtr;
             node = root;
         }
-        if (count == 8) {
+        if (count == cellSize) {
             count = 0;
             compressed.Read(c);
         }
     }
 
-    delete root;
 }
 
 string Huffman::GetName(){
     return "Huffman";
 }
-

@@ -2,28 +2,27 @@
 #define PROTOTIPE_HUFFMAN_H
 
 #include "Algorithm.h"
-
+#include <memory>
 
 struct Node
 {
     unsigned char c;
     int freq;
-    Node * left;
-    Node * right;
+    std::shared_ptr<Node> left;
+    std::shared_ptr<Node> right;
     Node() {}
-    Node(char c) : c(c), left(0), right(0) {}
-    Node (Node * left, Node * right) : c(0), left(left), right(right) {}
-    Node(char c, int freq, Node * left = 0, Node * right = 0) : right(right), c(c), left(left), freq(freq) {
+    Node(char c) : c(c), left(), right() {}
+    Node (std::shared_ptr<Node> left, std::shared_ptr<Node> right) : c(0), left(left), right(right) {}
+    Node(char c, int freq, std::shared_ptr<Node> left, std::shared_ptr<Node> right) : right(right), c(c), left(left), freq(freq) {
     }
     ~Node() {
-        delete left;
-        delete right;
+
     }
 };
 
 struct nodeComparator
 {
-    bool operator ()(const Node * left, const Node * right) const
+    bool operator ()(const std::shared_ptr<Node> left, const std::shared_ptr<Node> right) const
     {
         return left->freq < right->freq;
     }
@@ -33,14 +32,16 @@ class Huffman : public Algorithm {
 public:
     Huffman();
     ~Huffman() = default;
-    bool ShouldChoose(string type_file) override;
-    string GetName();
+    bool ShouldChoose(std::string type_file) override;
+    std::string GetName();
 private:
-    void buildTable(Node * root, vector<bool> & bits, map<char, vector<bool> >  & code);
-    void WriteTree(Node * root, IOutputStream& compressed);
-    Node * ReadTree(IInputStream& compressed);
-    void Encode(IInputStream& original, IOutputStream& compressed);
-    void Decode(IInputStream& compressed, IOutputStream& original);
+    size_t cellSize;
+    size_t cellSizeBinary;
+    void buildTable(std::shared_ptr<Node> root, std::vector<bool> & bits, std::map<char, std::vector<bool> >  & code);
+    void WriteTree(std::shared_ptr<Node> root, IOutputStream& compressed);
+    std::shared_ptr<Node> ReadTree(IInputStream& compressed);
+    void Encode(IInputStream& original, IOutputStream& compressed) override;
+    void Decode(IInputStream& compressed, IOutputStream& original) override;
 /*PMPL*/
 };
 

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include "IOutputStream.h"
-#include "IGetFileSize.h"
 
 void Output::RemoveFile() {
     const char *filep = filepath.c_str();
@@ -17,10 +16,22 @@ Output::Output(std::string _filepath) : filepath(_filepath) {
         fout.close();
     }
 }
+
+Output::Output(const Output & output){
+    filepath = output.filepath;
+    fout.open(output.filepath, std::ios::binary);
+    size = output.size;
+
+    if (!fout.is_open()) {
+        std::cout << "file " << filepath << " cant be open" << std::endl;
+        fout.close();
+    }
+}
+
 void Output::Write(byte value) {
     char buff = (char)value;
     fout.write(&buff, sizeof(char));
-    size++;
+    ++size;
 }
 
 size_t Output::GetFileSize() {

@@ -18,23 +18,19 @@
 #include "IInputStream.h"
 #include "IOutputStream.h"
 
-using namespace std;
 
-/*Абстрактный класс*/
 
 class Algorithm {
 public:
     Algorithm();
     ~Algorithm() = default;
-    double CompressionRatio;
-    virtual void Compress(string input_filepath, string output_filepath); /* Compress никаким образом не зависит от Decompress*/
-    virtual void Decompress(string input_filepath, string output_filepath);
-    virtual bool ShouldChoose(string type_file) = 0;
-    virtual void CopyStream(IInputStream& input, IOutputStream& output);
+    double compressionRatio;
+    virtual double Compress(Input input, Output output);
+    virtual void Decompress(Input input, Output output);
+    virtual bool ShouldChoose(std::string type_file) = 0;
     virtual double GetCompressionRatio();
-    virtual string GetName() = 0;
+    virtual std::string GetName() = 0;
 private:
-    bool FlagCompare;
     bool IsOrigLessCompr(double size_compressed_f, double size_origin_f);
     virtual void Encode(IInputStream& original, IOutputStream& compressed) = 0;
     virtual void Decode(IInputStream& compressed, IOutputStream& original) = 0;

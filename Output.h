@@ -9,11 +9,10 @@
 #include <iostream>
 #include <fstream>
 #include "IOutputStream.h"
-#include "IGetFileSize.h"
 
 typedef unsigned char byte;
 
-class Output : public  IOutputStream, IGetFileSize {
+class Output : public  IOutputStream {
 private:
     std::string filepath;
     std::ofstream fout;
@@ -21,6 +20,7 @@ private:
 public:
     void RemoveFile();
     Output(std::string _filepath);
+    Output(const Output &input);
     ~Output();
     void Write(byte value);
     size_t GetFileSize();
