@@ -1,7 +1,7 @@
 #include "Output.h"
 
 #include <iostream>
-#include <fstream>
+#include <utility>
 #include "IOutputStream.h"
 #include "IGetFileSize.h"
 
@@ -10,7 +10,7 @@ void Output::RemoveFile() {
     std::remove(filep);
 }
 
-Output::Output(std::string _filepath) : filepath(_filepath) {
+Output::Output(std::string _filepath) : filepath(std::move(_filepath)) {
     fout.open(filepath, std::ios::binary);
     if (!fout.is_open()) {
         std::cout << "can't open or create file" << filepath << std::endl;

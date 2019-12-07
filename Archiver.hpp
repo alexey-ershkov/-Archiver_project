@@ -6,13 +6,15 @@
 #define _ARCHIVER_HPP_
 
 #include "TypeIdentifier.hpp"
+#include "Output.h"
+#include "Input.h"
+#include "ArchiveFile.hpp"
 
 class Archiver{
  public:
-  std::map<std::string, std::string> Read(std::string path_to_archive);
-  std::map<std::string, std::string> Unpack(std::string path_to_archive);
-  std::string Pack(std::map<std::string, std::string> compressed_data);
-
+  static std::map<std::string, std::string> Read(const std::string& path_to_archive);
+  static std::map<std::string, std::string> Unpack(const std::string& path_to_archive);
+  static std::string Pack(const std::map<std::string, std::string>& compressed_data);
 };
 
 #endif //_ARCHIVER_HPP_

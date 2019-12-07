@@ -9,6 +9,12 @@ add_subdirectory(boost-cmake)
 add_executable(Archiver
         Archiver.hpp TypeIdentifier.hpp
         Archiver.cpp TypeIdentifier.cpp
+        Output.cpp   Input.cpp
+        Output.h     Input.h
+        IOutputStream.h
+        IInputStream.h  ArchiveFile.hpp
+        IGetFileSize.h  ArchiveFile.cpp
+
         )
 
 target_link_libraries(Archiver PUBLIC Boost::filesystem)

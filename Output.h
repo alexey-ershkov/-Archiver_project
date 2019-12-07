@@ -20,10 +20,10 @@ private:
     size_t size = 0;
 public:
     void RemoveFile();
-    Output(std::string _filepath);
+    explicit Output(std::string _filepath);
     ~Output();
-    void Write(byte value);
-    size_t GetFileSize();
+    void Write(byte value) override;
+    size_t GetFileSize() override;
 
 };
 

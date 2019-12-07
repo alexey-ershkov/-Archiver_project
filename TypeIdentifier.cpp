@@ -8,12 +8,10 @@ TypeIdentifier::TypeIdentifier () = default;
 TypeIdentifier::~TypeIdentifier () = default;
 
 std::string TypeIdentifier::SignatureDetect(const std::string& path){
-  const char * spath = path.c_str();
-
   auto handle = magic_open(MAGIC_MIME_TYPE);
   magic_load(handle, MIME_DB);
 
-  std::string type = magic_file (handle, spath);
+  std::string type = magic_file (handle, path.c_str());
   std::vector<std::string> out;
   boost::split(out, type, [](char c){return c == '/';});
 
