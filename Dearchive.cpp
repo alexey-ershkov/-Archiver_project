@@ -5,7 +5,7 @@
 #include "Dearchive.h"
 ModelResponse<> Dearchive::handle(Request request) {
     ModelResponse<> response;
-
+    response.module = ModelResponse<>::dearchive;
     try {
         ////Вызов алгоритмов деархивации
         /// и расжатия

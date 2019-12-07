@@ -7,9 +7,10 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(headers/)
 
+
 add_executable(ArchiverEngine main.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
 
 
 
-add_executable(UnitTests GTest.cpp)
+add_executable(UnitTests GTest.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
 target_link_libraries(UnitTests ${GTEST_LIBRARIES} pthread)

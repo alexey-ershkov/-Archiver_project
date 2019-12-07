@@ -8,8 +8,10 @@
 
 template <typename T = std::vector<std::string>>
 struct ModelResponse {
+    enum module {archive, dearchive, show};
     enum status {ok, warning ,error};
     status state;
+    module module;
     std::string info;
     T data;
 };

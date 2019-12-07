@@ -26,7 +26,7 @@ private:
     std::vector<std::shared_ptr<IHandler<>>> handlers;
     //не смог разрешить циклическую ссылку через shared_ptr и weak_ptr, т.к.
     // view удалаяется до обращения к нему по weak_ptr
-    View *view; //TODO добавить pimpl в проект
+    View *view;
 public:
 
     Presenter (View *input) : view(input) {
@@ -37,9 +37,9 @@ public:
         handlers.push_back(dearchive);
         handlers.push_back(show);
     };
-    void send_request(Request);
-    void view_sender(Message message);
-    void view_sender(std::vector<std::string>);
+    void send_request(Request, std::ostream&);
+    void view_sender(Message message, std::ostream&);
+    void view_sender(std::vector<std::string>, std::ostream&);
 };
 
 

@@ -6,6 +6,7 @@
 
 ModelResponse<> Show::handle(Request request) {
     ModelResponse<> response;
+    response.module = ModelResponse<>::show;
     //Заглушка для списка файлов
     std::vector<std::string> fake_filenames = {"File1", "File2", "File3", "File4", "File5"};
     try {

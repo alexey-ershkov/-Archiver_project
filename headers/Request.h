@@ -11,7 +11,7 @@
 #include <unordered_map>
 
 struct Request {
-    enum request_type {show, archive, dearchive};
+    enum request_type {archive, dearchive, show};
     request_type type;
     std::vector<std::string> filenames;
     std::unordered_multimap <std::string, std::string> types;

@@ -13,6 +13,7 @@ class Show : public IHandler<> {
 public:
     ModelResponse<> handle(Request) override;
     bool can_handle(Request) override;
+    virtual ~Show() {};
 };
 
 

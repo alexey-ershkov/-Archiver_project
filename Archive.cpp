@@ -6,7 +6,7 @@
 
 ModelResponse<> Archive::handle(Request request) {
     ModelResponse<> response;
-
+    response.module = ModelResponse<>::archive;
     try {
         ////Вызов алгоритмов на проверку типа данных
         /// Сжатия

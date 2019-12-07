@@ -6,17 +6,17 @@
 #include "headers/Presenter.h"
 
 
-void Presenter::send_request(Request request) {
+void Presenter::send_request(Request request, std::ostream& output) {
     for (auto it : handlers) {
         if (it->can_handle(request)) {
-            ModelResponse response =  it->handle(request);
+            ModelResponse<> response =  it->handle(request);
             if (response.state == ModelResponse<>::ok) {
                 Message message;
                 message.type = Message::ok;
                 message.message_text = response.info;
-                view_sender(message);
+                view_sender(message, output);
                 if (!response.data.empty())
-                    view_sender(response.data);
+                    view_sender(response.data, output);
                 return;
             }
         }

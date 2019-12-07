@@ -14,6 +14,7 @@ class Dearchive : public IHandler<> {
 public:
     ModelResponse<> handle(Request) override;
     bool can_handle(Request) override;
+    virtual ~Dearchive() {};
 };
 
 
