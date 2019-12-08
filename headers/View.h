@@ -6,7 +6,7 @@
 #ifndef ARCHIVER_VIEW_H
 #define ARCHIVER_VIEW_H
 
-
+//TODO абстракция над view
 
 
 #include "Request.h"

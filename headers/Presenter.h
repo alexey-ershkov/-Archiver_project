@@ -28,15 +28,12 @@ private:
     // view удалаяется до обращения к нему по weak_ptr
     View *view;
 public:
-
     Presenter (View *input) : view(input) {
-        auto show  = std::make_shared<Show>();
-        auto archive = std::make_shared<Archive>();
-        auto dearchive = std::make_shared<Dearchive>();
-        handlers.push_back(archive);
-        handlers.push_back(dearchive);
-        handlers.push_back(show);
+        add_handler(std::make_shared<Dearchive>());
+        add_handler(std::make_shared<Archive>());
+        add_handler (std::make_shared<Show>());
     };
+    bool add_handler (std::shared_ptr<IHandler<>> );
     void send_request(Request, std::ostream&);
     void view_sender(Message message, std::ostream&);
     void view_sender(std::vector<std::string>, std::ostream&);

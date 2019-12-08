@@ -27,5 +27,13 @@ void Presenter::send_request(Request request, std::ostream& output) {
 }
 
 
-
+bool Presenter::add_handler(std::shared_ptr<IHandler<>> input) {
+    try {
+        handlers.push_back(input);
+    }
+    catch (...) {
+        return false;
+    }
+    return true;
+}
 
