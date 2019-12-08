@@ -134,7 +134,7 @@ class AbstractRpcServer(object):
         (email, password) tuple when called. Will be called if authentication
         is required.
       host_override: The host header to send to the server (defaults to host).
-      extra_headers: A dict of extra headers to append to every request.
+      extra_headers: A dict of extra lib_headers to append to every request.
       save_cookies: If True, save the authentication cookies to local disk.
         If False, use an in-memory cookiejar instead.  Subclasses must
         implement this functionality.  Defaults to False.

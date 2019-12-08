@@ -50,7 +50,7 @@ EXAMPLES
        ./fuse_gtest_files.py path/to/unpacked/gtest fused_gtest
 
 This tool is experimental.  In particular, it assumes that there is no
-conditional inclusion of Google Test headers.  Please report any
+conditional inclusion of Google Test lib_headers.  Please report any
 problems to googletestframework@googlegroups.com.  You can read
 https://github.com/google/googletest/blob/master/googletest/docs/advanced.md for
 more information.
@@ -150,7 +150,7 @@ def FuseGTestH(gtest_root, output_dir):
   """Scans folder gtest_root to generate gtest/gtest.h in output_dir."""
 
   output_file = open(os.path.join(output_dir, GTEST_H_OUTPUT), 'w')
-  processed_files = set()  # Holds all gtest headers we've processed.
+  processed_files = set()  # Holds all gtest lib_headers we've processed.
 
   def ProcessFile(gtest_header_path):
     """Processes the given gtest header file."""
@@ -200,7 +200,7 @@ def FuseGTestAllCcToFile(gtest_root, output_file):
         else:
           # It's '#include "gtest/foo.h"' where foo is not gtest-spi.
           # We treat it as '#include "gtest/gtest.h"', as all other
-          # gtest headers are being fused into gtest.h and cannot be
+          # gtest lib_headers are being fused into gtest.h and cannot be
           # #included directly.
 
           # There is no need to #include "gtest/gtest.h" more than once.

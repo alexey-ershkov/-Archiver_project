@@ -145,7 +145,7 @@ def NormalizeToCurrentPlatform(test_output):
   if IS_WINDOWS:
     # Removes the color information that is not present on Windows.
     test_output = re.sub('\x1b\\[(0;3\d)?m', '', test_output)
-    # Changes failure message headers into the Windows format.
+    # Changes failure message lib_headers into the Windows format.
     test_output = re.sub(r': Failure\n', r': error: ', test_output)
     # Changes file(line_number) to file:line_number.
     test_output = re.sub(r'((\w|\.)+)\((\d+)\):', r'\1:\3:', test_output)

@@ -53,7 +53,7 @@ EXAMPLES
        ./fuse_gmock_files.py path/to/unpacked/gmock fused_gmock
 
 This tool is experimental.  In particular, it assumes that there is no
-conditional inclusion of Google Mock or Google Test headers.  Please
+conditional inclusion of Google Mock or Google Test lib_headers.  Please
 report any problems to googlemock@googlegroups.com.  You can read
 https://github.com/google/googletest/blob/master/googlemock/docs/cook_book.md for more
 information.
@@ -120,7 +120,7 @@ def FuseGMockH(gmock_root, output_dir):
   """Scans folder gmock_root to generate gmock/gmock.h in output_dir."""
 
   output_file = file(os.path.join(output_dir, GMOCK_H_OUTPUT), 'w')
-  processed_files = sets.Set()  # Holds all gmock headers we've processed.
+  processed_files = sets.Set()  # Holds all gmock lib_headers we've processed.
 
   def ProcessFile(gmock_header_path):
     """Processes the given gmock header file."""
@@ -142,7 +142,7 @@ def FuseGMockH(gmock_root, output_dir):
         if m:
           # It's '#include "gtest/foo.h"'.  We translate it to
           # "gtest/gtest.h", regardless of what foo is, since all
-          # gtest headers are fused into gtest/gtest.h.
+          # gtest lib_headers are fused into gtest/gtest.h.
 
           # There is no need to #include gtest.h twice.
           if not gtest.GTEST_H_SEED in processed_files:
@@ -175,7 +175,7 @@ def FuseGMockAllCcToFile(gmock_root, output_file):
       m = INCLUDE_GMOCK_FILE_REGEX.match(line)
       if m:
         # It's '#include "gmock/foo.h"'.  We treat it as '#include
-        # "gmock/gmock.h"', as all other gmock headers are being fused
+        # "gmock/gmock.h"', as all other gmock lib_headers are being fused
         # into gmock.h and cannot be #included directly.
 
         # There is no need to #include "gmock/gmock.h" more than once.

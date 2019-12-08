@@ -2,15 +2,20 @@ cmake_minimum_required(VERSION 3.8)
 project(Archiver)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic")
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
-include_directories(headers/)
+include_directories(lib_headers/)
+
+set(ArchiveLib Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
+
+add_library(ArchiverEngine STATIC ${ArchiveLib})
+
+add_executable(ArchiveConsole main.cpp)
+target_link_libraries(ArchiveConsole ArchiverEngine)
 
 
-add_executable(ArchiverEngine main.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
-
-
-
-add_executable(UnitTests GTest.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
+add_executable(UnitTests GTest.cpp)
 target_link_libraries(UnitTests ${GTEST_LIBRARIES} pthread)
+target_link_libraries(UnitTests ArchiverEngine)

@@ -346,7 +346,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 #endif
 #else
 // This assumes that non-Windows OSes provide unistd.h. For OSes where this
-// is not the case, we need to include headers that provide the functions
+// is not the case, we need to include lib_headers that provide the functions
 // mentioned above.
 # include <unistd.h>
 # include <strings.h>
@@ -369,7 +369,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 #endif
 
 #if GTEST_USES_PCRE
-// The appropriate headers have already been included.
+// The appropriate lib_headers have already been included.
 
 #elif GTEST_HAS_POSIX_RE
 
