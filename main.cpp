@@ -2,6 +2,7 @@
 #include <cstring>
 
 
+
 int main(int argc, char** argv) {
     View *view;
     if (argc > 1){

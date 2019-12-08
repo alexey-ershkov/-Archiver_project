@@ -239,22 +239,14 @@ bool View::show_files(std::vector<std::string> files, std::ostream& output) {
 
 bool check_int (std::string checking) {
     for (auto letter : checking) {
-        // 48 - разность кода символа и числа
-        int buffer = (int)letter - 48;
-        if (!isdigit(buffer))
+        if (!isdigit(letter))
             return false;
     }
+    if (std::atoi(checking.c_str()) != round(std::atoi(checking.c_str())))
+        return false;
     return true;
 }
 
-int string_to_int (std::string str) {
-    int out = 0;
-    for (auto letter : str) {
-        // 48 - разность кода символа и числа
-        out = out * 10 + (int)letter - 48;
-    }
-    return out;
-}
 
 size_t View::get_int(std::istream& input, std::ostream& output) {
     Message message;
@@ -264,14 +256,14 @@ size_t View::get_int(std::istream& input, std::ostream& output) {
     std::string int_input;
     output << shift;
     input >> int_input;
-    while (check_int(int_input)) {
+    while (!check_int(int_input)) {
         send_message(message, output);
         input.clear(); // то возвращаем cin в 'обычный' режим работы
         input.ignore(32767,'\n'); //
         output << shift;
         input >> int_input;
     }
-    return string_to_int(int_input);
+    return std::atoi(int_input.c_str());
 }
 
 View::View() {
