@@ -237,22 +237,38 @@ bool View::show_files(std::vector<std::string> files, std::ostream& output) {
     return true;
 }
 
+bool check_int (std::string checking) {
+    for (auto letter : checking) {
+        if (!isdigit((int)letter))
+            return false;
+    }
+    return true;
+}
+
+int string_to_int (std::string str) {
+    int out = 0;
+    for (auto letter : str) {
+        out = out * 10 + (int)letter;
+    }
+    return out;
+}
+
 size_t View::get_int(std::istream& input, std::ostream& output) {
     Message message;
     std::string shift = set_center(output);
     message.type = Message::error;
     message.message_text = "Input integer number";
-    size_t int_input;
+    std::string int_input;
     output << shift;
     input >> int_input;
-    while (input.fail()) {
+    while (!check_int(int_input)) {
         send_message(message, output);
         input.clear(); // то возвращаем cin в 'обычный' режим работы
         input.ignore(32767,'\n'); //
         output << shift;
         input >> int_input;
     }
-    return int_input;
+    return string_to_int(int_input);
 }
 
 View::View() {
