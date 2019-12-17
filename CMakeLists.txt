@@ -22,16 +22,5 @@ add_executable(UnitTests GTest.cpp)
 target_link_libraries(UnitTests ${GTEST_LIBRARIES} pthread)
 target_link_libraries(UnitTests ArchiverEngine)
 
-#QT5
 
-
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
-
-add_executable(QTTest mainQT.cpp)
-
-target_link_libraries(QTTest Qt5::Widgets)
 
