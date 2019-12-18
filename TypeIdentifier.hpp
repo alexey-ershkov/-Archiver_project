@@ -8,9 +8,9 @@
 #include <vector>
 #include <map>
 #include <string>
-#include <boost/algorithm/string.hpp>
 #include <magic.h>
 #include <string>
+#include <sstream>
 
 #define MIME_DB "/usr/share/file/magic.mgc"
 
@@ -23,6 +23,8 @@ class TypeIdentifier{
 
   static std::vector<std::string> SignatureDetect(const std::vector<std::string>& list);
   static std::string SignatureDetect (const std::string &path);
+  static std::string SplitAndClear(const std::string& string);
+
 };
 
 #endif //_TYPEIDENTIFIER_HPP_

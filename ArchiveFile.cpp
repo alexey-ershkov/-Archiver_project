@@ -14,9 +14,32 @@ void ArchiveFile::WriteString(const std::string& s) {
   Write (0x00);
 }
 
-void ArchiveFile::WriteSizeT(const size_t s){
-  fout.write(reinterpret_cast<const char*>(&s), sizeof(s));
-  size += sizeof(s);
+size_t ArchiveFile::GetPointer(const std::string& in){
+  size_t x;
+  std::stringstream ss;
+  ss << std::hex << in;
+  ss >> x;
+  return x;
+}
+
+std::string ArchiveFile::makeString(const std::string& in){
+  int diff  = 16 - in.length();
+  std::string out;
+  for(int i = 0; i < diff; i++){
+      out.push_back('0');
+    }
+  out.append(in);
+
+  return out;
+}
+
+void ArchiveFile::WritePointer(unsigned int input_string){
+  std::stringstream field;
+  std::string hex_string;
+  field << std::hex << input_string;
+  field >> hex_string;
+  hex_string = makeString(hex_string);
+  WriteString(hex_string);
 }
 
 void ArchiveFile::WriteSignature () {
@@ -42,6 +65,7 @@ void ArchiveFile::WriteFile(const std::string& path){
   byte b;
   while (bin.Read (b))
     Write (b);
+  ;
 }
 
 void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
@@ -59,10 +83,10 @@ void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& c
       relative_pointer += bin.GetFileSize ();
       entry.end = relative_pointer++;
     }
-    entry.type = TypeIdentifier::SignatureDetect (item.first);
+    entry.type = TypeIdentifier::SignatureDetect (item.second);
 
-    WriteSizeT (entry.start);
-    WriteSizeT (entry.end);
+    WritePointer(entry.start);
+    WritePointer(entry.end );
     WriteString (entry.name);
     WriteString (entry.type);
 
@@ -80,4 +104,7 @@ ArchiveFile::ArchiveFile (std::string path) :Output (path), filepath (std::move(
 
   WriteSignature();
   content_start = 0;
+}
+void ArchiveFile::Close(){
+  fout.close();
 }

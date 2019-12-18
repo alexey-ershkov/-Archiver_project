@@ -14,12 +14,10 @@ std::string Archiver::Pack (const std::map<std::string, std::string>& compressed
   std::vector<Entry> EntrySystem = archive.ViewArchive ();
 
   for(auto& entry : EntrySystem){
-    archive.WriteFile (entry.bin_name);
+    //archive.WriteFile (entry.bin_name);
   }
-
-
-
-  return std::__cxx11::string ();
+  archive.Close();
+  return "Archive.tprk";
 }
 
 

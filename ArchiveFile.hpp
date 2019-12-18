@@ -31,14 +31,17 @@ class ArchiveFile : private Output{
   void WriteEntrySeparator ();
   void WriteString (const std::string& s);
   void WriteSignature ();
-  void WriteSizeT(size_t s);
+  static std::string makeString (const std::string &in);
+  void WritePointer (unsigned int input_string);
  public:
 
   explicit ArchiveFile (std::string path);
   void CreateEntrySystem(const std::map<std::string, std::string>& compressed_data);
   std::vector<Entry> ViewArchive(){ return internal_system;};
-  void WriteFile (const std::string& path);
+  size_t GetPointer (const std::string &in);
 
+  void WriteFile (const std::string& path);
+  void Close();
 };
 
 

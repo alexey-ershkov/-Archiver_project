@@ -4,7 +4,6 @@ project(Archiver CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_subdirectory(boost-cmake)
 
 add_executable(Archiver
         Archiver.hpp TypeIdentifier.hpp
@@ -15,8 +14,9 @@ add_executable(Archiver
         IInputStream.h  ArchiveFile.hpp
         IGetFileSize.h  ArchiveFile.cpp
 
-        )
+        main.cpp
 
-target_link_libraries(Archiver PUBLIC Boost::filesystem)
-target_link_libraries(Archiver PUBLIC Boost::boost)
+        )
+add_executable(TEST buff.cpp)
+
 target_link_libraries(Archiver PUBLIC magic)

@@ -11,19 +11,34 @@ std::string TypeIdentifier::SignatureDetect(const std::string& path){
   auto handle = magic_open(MAGIC_MIME_TYPE);
   magic_load(handle, MIME_DB);
 
-  std::string type = magic_file (handle, path.c_str());
-  std::vector<std::string> out;
-  boost::split(out, type, [](char c){return c == '/';});
+  std::string type = SplitAndClear(magic_file (handle, path.c_str ()));
 
-  return out[1];
+  return type;
 }
 
 
 std::vector<std::string> TypeIdentifier::SignatureDetect(const std::vector<std::string>& list){
   std::vector<std::string> out;
+  out.reserve(list.size());
 
-  for(const auto & it : list){
-      out.push_back(SignatureDetect (it));
+for(const auto & iter : list){
+      out.push_back(SignatureDetect(iter));
     }
   return out;
 }
+
+
+std::string TypeIdentifier::SplitAndClear(const std::string &string){
+    std::stringstream string_a(string);
+    std::string segment;
+    std::vector<std::string> seglist;
+
+    while(std::getline(string_a, segment, '/')){
+        seglist.push_back(segment);
+    }
+    if(seglist[1].length() > 31)
+      seglist[1].resize(31);
+    seglist[1].append("\0");
+    return seglist[1];
+}
+
