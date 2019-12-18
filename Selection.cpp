@@ -24,7 +24,8 @@ double Selection::Compress(string input_filepath, string output_filepath){
         output.RemoveFile();
         compressionRatio = 1;
     }
-    cout << compressionRatio << endl;
+    //TODO процент сжатия можно показать в qt
+   //cout << compressionRatio << endl;
     return compressionRatio;
 }
 
