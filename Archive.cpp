@@ -8,6 +8,8 @@ ModelResponse<> Archive::handle(Request request) {
     ModelResponse<> response;
     response.module = ModelResponse<>::archive;
     try {
+        for (auto it : request.filenames)
+            std::cout << it << std::endl;
         ////Вызов алгоритмов на проверку типа данных
         /// Сжатия
         /// И Архивации

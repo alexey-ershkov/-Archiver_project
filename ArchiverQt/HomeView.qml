@@ -41,6 +41,7 @@ Item{
 
             onClicked: {
                 console.log("open_button clicked")
+                pageLoader.source = "ShowView.qml"
             }
        }
 
