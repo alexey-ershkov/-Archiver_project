@@ -9,7 +9,7 @@ ModelResponse<> Archive::handle(Request request) {
     response.module = ModelResponse<>::archive;
     try {
         for (auto it : request.filenames){
-            Selection selection("txt") ;
+            Selection selection(TypeIdentifier::SignatureDetect(it));
             selection.Compress(it, new_name(it));
         }
 

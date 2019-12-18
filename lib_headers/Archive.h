@@ -9,6 +9,7 @@
 #include "IHandler.h"
 #include "Selection.h"
 #include <stdexcept>
+#include "TypeIdentifier.hpp"
 
 
 class Archive : public IHandler<> {

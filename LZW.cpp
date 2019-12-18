@@ -3,7 +3,7 @@
 using namespace std;
 
 LZW::LZW(std::vector<std::string> should_choose_formats){
-    Formats = {"png", "tiff", "jpg", "gif", "bmp"};
+    Formats = {"image"};
     for(auto &it : should_choose_formats ){
         Formats.push_back(it);
     }

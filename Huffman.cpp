@@ -3,7 +3,7 @@
 using namespace std;
 
 Huffman::Huffman(): cellSize(8), cellSizeBinary(256) {
-    vector<string> new_formats = {"txt", "rtf", "doc", "docx", "html", "pdf", "odt"};
+    vector<string> new_formats = {"text", "application"};
     Formats = new_formats;
 
 }
