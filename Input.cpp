@@ -1,8 +1,8 @@
-
+#include <cassert>
 #include <iostream>
 #include "Input.h"
 
-Input::Input(const std::string _filepath ) : count(0), filepath(_filepath) {
+Input::Input(const std::string _filepath ) : count(0), filepath(_filepath), isFileOpenedSuccesful(true) {
     fin.open(filepath,std::ios::binary);
     if (!fin.is_open()) {
         std::cout << "file " << filepath << " cant be open" << std::endl;
@@ -18,6 +18,7 @@ Input::Input(const Input &input){
     if (!fin.is_open()) {
         std::cout << "file " << filepath << " cant be open" << std::endl;
         fin.close();
+        isFileOpenedSuccesful = false;
     }
 }
 
@@ -41,6 +42,10 @@ bool Input::Read(byte& value) {
 
 Input::~Input() {
     fin.close();
+}
+
+bool Input::isFileEmpty(){
+    (0 == count) ? true : false;
 }
 
 

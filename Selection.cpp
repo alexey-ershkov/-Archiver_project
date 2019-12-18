@@ -3,13 +3,13 @@
 #include "Selection.h"
 using namespace std;
 
-Selection::Selection(string _typeFile) : typeFile(_typeFile) {
+Selection::Selection(string _typeFile) : typeFile(_typeFile), compressionRatio(0) {
 
 
     Add(shared_ptr<Huffman>(new Huffman));
     Add(shared_ptr<LZW>(new LZW));
 
-    ChooseAlgorithm();
+    ChooseAlgorithm(); // getActive
 }
 
 
@@ -17,13 +17,15 @@ double Selection::Compress(string input_filepath, string output_filepath){
     Input input(input_filepath);
     Output output(output_filepath);
 
-    algo->Compress(input, output);
+    algo->Compress(input, output); //getAlgo
+    compressionRatio = algo->compressionRatio;
 
     if(IsOrigLessCompr((double)output.GetFileSize(), (double)input.GetFileSize())){
         output.RemoveFile();
-        return 1;
+        compressionRatio = 1;
     }
-    return algo->GetCompressionRatio();
+    cout << compressionRatio << endl;
+    return compressionRatio;
 }
 
 void Selection::Decompress(string input_filepath, string output_filepath){
@@ -31,10 +33,6 @@ void Selection::Decompress(string input_filepath, string output_filepath){
     Output output(output_filepath);
     algo->Decompress(input, output);
 
-}
-
-double Selection::GetCompressionRatio() {
-    return algo->compressionRatio;
 }
 
 
@@ -51,11 +49,10 @@ void Selection::SetDefaultAlg() {
 void Selection::ChooseAlgorithm() {
     for (auto &it : arrayAlgos){
         if(it->ShouldChoose(typeFile)){
-            algo = it; // it имеет тип unique_ptr
+            algo = it;
             return;
         }
     }
-     /* Если ни один из алгоритмов не подходит под файл попробуем сжать по хаффману, т.к. он относительно универсальный */
      SetDefaultAlg();
 
 }

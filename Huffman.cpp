@@ -3,23 +3,23 @@
 using namespace std;
 
 Huffman::Huffman(): cellSize(8), cellSizeBinary(256) {
+    vector<string> new_formats = {"txt", "rtf", "doc", "docx", "html", "pdf", "odt"};
+    Formats = new_formats;
 
 }
 
 bool Huffman::ShouldChoose(string type_file) {
-    vector<string> Formats = {"txt", "rtf", "doc", "docx", "html", "pdf", "odt"};
+
     auto it = find(Formats.begin(), Formats.end(), type_file);
     if(it != Formats.end()) {
         return true;
     }
-    else {
-        return false;
-    }
+    return false;
 }
 
 
 
-void Huffman::buildTable(shared_ptr<Node> root, vector<bool> &bits, map<char, vector<bool> > &code) {
+void Huffman::buildTable(shared_ptr<Node> root, vector<bool> &bits, map <char, vector<bool> > &code) {
     if (!root) return;
 
     if (!root->left && !root->right) {
@@ -100,9 +100,8 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
 
     // составление списка
     std::list<shared_ptr<Node>> l;
-
-    for (map<char, int>::iterator it = freqs.begin(); it != freqs.end() ; ++it ) {
-        shared_ptr<Node> node(new Node(it->first, it->second, 0, 0));
+    for(auto it : freqs){
+        shared_ptr<Node> node(new Node(it.first, it.second, 0, 0));
         l.push_back(node);
     }
 
@@ -144,7 +143,7 @@ void Huffman::Encode(IInputStream& original, IOutputStream& compressed){
 
     WriteTree(root, compressed);
 
-    /*Записываем закодированные hello world в файл*/
+    /*Записываем закодированные  в файл*/
     while (strPtr < file.size()) {
         c = file[strPtr];
         ++strPtr;
@@ -192,12 +191,13 @@ void Huffman::Decode( IInputStream& compressed, IOutputStream& original ){
     char buf;
     compressed.Read(c);
 
-    while(filePtr < fileSize)
-    {
+    while(filePtr < fileSize) {
         bool b = c & (1 << ((cellSize -1) - count++) );
         if (b) node = node->right;
         else node = node->left;
-        if (!node) return;
+        if (!node){
+            break;
+        }
         if (!node->left && !node->right) {
             original.Write(node->c);
             buf = node->c;

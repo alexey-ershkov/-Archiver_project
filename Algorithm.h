@@ -5,18 +5,18 @@
 #ifndef PROTOTIPE_ALGORITHM_H
 #define PROTOTIPE_ALGORITHM_H
 
-#include <vector>
-#include <iostream>
-#include <vector>
-#include <map>
-#include <math.h>
 #include <algorithm>
-#include <list>
-#include <stack>
-#include "Input.h"
-#include "Output.h"
+#include <cassert>
 #include "IInputStream.h"
+#include "Input.h"
 #include "IOutputStream.h"
+#include <iostream>
+#include <list>
+#include <math.h>
+#include <map>
+#include <stack>
+#include "Output.h"
+#include <vector>
 
 
 
@@ -25,8 +25,8 @@ public:
     Algorithm();
     ~Algorithm() = default;
     double compressionRatio;
-    virtual double Compress(Input input, Output output);
-    virtual void Decompress(Input input, Output output);
+    double Compress(Input& input, Output& output);
+    void Decompress(Input& input, Output& output);
     virtual bool ShouldChoose(std::string type_file) = 0;
     virtual double GetCompressionRatio();
     virtual std::string GetName() = 0;

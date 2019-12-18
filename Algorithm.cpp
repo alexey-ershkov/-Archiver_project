@@ -5,24 +5,25 @@ Algorithm::Algorithm() : compressionRatio(0) {
 
 }
 
-double Algorithm::Compress(Input input, Output output){
+double Algorithm::Compress(Input& input, Output& output){
+    if(input.isFileOpenedSuccesful && !input.isFileEmpty()){
+        Encode(input, output);
+        compressionRatio = (double)output.GetFileSize()/(double)input.GetFileSize();
+        return compressionRatio;
+    }
+    assert("File for compress is empty or doesn't exist");
 
-    Encode(input, output);
-    std::cout << std::fixed;
-    std::cout.precision(3);
-
-
-    compressionRatio = (double)output.GetFileSize()/(double)input.GetFileSize();
-    return compressionRatio;
 }
 
 
 
 
-void Algorithm::Decompress(Input input, Output output){
-    Decode(input, output);
-
-    input.RemoveFile();
+void Algorithm::Decompress(Input& input, Output& output){
+    if(input.isFileOpenedSuccesful && !input.isFileEmpty()){
+        Decode(input, output);
+        return;
+    }
+    assert("File for decompress is empty or doesn't exist");
 }
 
 

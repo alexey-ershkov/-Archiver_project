@@ -35,6 +35,7 @@ public:
     bool ShouldChoose(std::string type_file) override;
     std::string GetName();
 private:
+    std::vector<std::string> Formats;
     size_t cellSize;
     size_t cellSizeBinary;
     void buildTable(std::shared_ptr<Node> root, std::vector<bool> & bits, std::map<char, std::vector<bool> >  & code);

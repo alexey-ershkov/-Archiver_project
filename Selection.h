@@ -1,9 +1,10 @@
 #ifndef PROTOTIPE_SELECTION_H
 #define PROTOTIPE_SELECTION_H
 
+#include "Algorithm.h"
 #include "Huffman.h"
 #include "LZW.h"
-#include "Algorithm.h"
+
 
 
 
@@ -14,7 +15,7 @@ public:
     double Compress(std::string input_filepath, std::string output_filepath);
     void Decompress(std::string input_filepath, std::string output_filepath);
     std::string GetTypeFile();
-    double GetCompressionRatio();
+    double compressionRatio;
     std::string GetNameAlgorithm();
 
 private:
