@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "View.h"
+
+
 
 int main(int argc, char *argv[])
 {
