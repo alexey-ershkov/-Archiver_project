@@ -76,8 +76,9 @@ void ArchiveFile::WriteFile(const std::string& path){
 
 void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
   size_t relative_pointer = 0;
+  unsigned long int entry_system_length = compressed_data.size();
+  WritePointer (entry_system_length);
 
-  WriteEntrySeparator();
   for (auto &item : compressed_data){
 
 
@@ -100,7 +101,7 @@ void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& c
     internal_system.push_back(entry);
     WriteEntrySeparator();
     }
-    WriteEndOfES();
+    //WriteEndOfES();
 }
 
 
@@ -110,8 +111,10 @@ ArchiveFile::ArchiveFile (std::string path, char mode) :Output (path), filepath 
     WriteSignature();
     content_start = 0;
   }
-  if(mode=='r')
-    OpenInput();
+  if(mode=='r'){
+      OpenInput ();
+      SkipSignature();
+    }
 }
 
 void ArchiveFile::CloseOutput(){
@@ -136,4 +139,31 @@ void ArchiveFile::OpenInput(){
       std::cout << "file " << filepath << " cant be open" << std::endl;
       fin.close();
     }
+}
+std::string ArchiveFile::GetLine (){
+  std::string out;
+  unsigned char ch;
+
+  while(Read(ch)&&(ch!='\0')){
+    out.push_back(ch);
+  }
+
+  return out;
+}
+
+bool ArchiveFile::GetEntry(Entry &entry) {
+  entry.start = GetPointer (GetLine ());
+  entry.end = GetPointer (GetLine ());
+  entry.name = GetLine ();
+  entry.type = GetLine ();
+  unsigned char test;
+
+  return Read (test) && test == 0x0F;
+}
+
+void ArchiveFile::SkipSignature (){
+  byte stub;
+  for(byte i = 0; i < 5; i++){ // 5 is length of tprk signature
+    Read(stub);
+  }
 }

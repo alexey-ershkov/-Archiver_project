@@ -36,9 +36,9 @@ std::string TypeIdentifier::SplitAndClear(const std::string &string){
     while(std::getline(string_a, segment, '/')){
         seglist.push_back(segment);
     }
-    if(seglist[1].length() > 31)
-      seglist[1].resize(31);
-    seglist[1].append("\0");
-    return seglist[1];
+    if(seglist[0].length() > 31)
+      seglist[0].resize(31);
+    seglist[0].append("\0");
+    return seglist[0];
 }
 

@@ -44,9 +44,6 @@ class ArchiveFile : private Output, Input{
   void CreateEntrySystem(const std::map<std::string, std::string>& compressed_data);
   std::vector<Entry> ViewArchive(){ return internal_system;};
 
-  size_t GetPointer (const std::string &in);
-  static size_t GetInputFileSize(Input *in);
-
   void WriteFile (const std::string& path);
 
   void CloseOutput();
@@ -54,6 +51,13 @@ class ArchiveFile : private Output, Input{
 
   void OpenOutput();
   void OpenInput();
+
+  size_t GetPointer (const std::string &in);
+  static size_t GetInputFileSize(Input *in);
+  bool GetEntry(Entry &entry);
+  std::string GetLine();
+  void SkipSignature();
+
 };
 
 
