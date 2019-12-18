@@ -8,7 +8,7 @@
 std::string Archiver::Pack (const std::map<std::string, std::string>& compressed_data, std::string name)
 {
   name.append(".tprk");
-  ArchiveFile archive(name);
+  ArchiveFile archive(name, 'w');
 
   archive.CreateEntrySystem(compressed_data);
 
@@ -17,7 +17,7 @@ std::string Archiver::Pack (const std::map<std::string, std::string>& compressed
   for(auto& entry : EntrySystem){
     archive.WriteFile (entry.bin_name);
   }
-  archive.Close();
+  archive.CloseOutput ();
   return name;
 }
 

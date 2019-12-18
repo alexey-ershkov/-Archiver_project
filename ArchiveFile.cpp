@@ -6,6 +6,15 @@
 
 #include <utility>
 
+size_t ArchiveFile::GetInputFileSize (Input *in){
+  size_t size_a = 0;
+  byte stub;
+
+  while(in->Read(stub))
+    size_a++;
+
+  return size_a;
+}
 
 void ArchiveFile::WriteString(const std::string& s) {
   for(auto& ch : s){
@@ -95,28 +104,36 @@ void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& c
 }
 
 
-ArchiveFile::ArchiveFile (std::string path) :Output (path), filepath (std::move(path)){
-  fout.open(filepath, std::ios::binary);
-  if (!fout.is_open()) {
-    std::cout << "can't open or create file" << filepath << std::endl;
-    fout.close();
+ArchiveFile::ArchiveFile (std::string path, char mode) :Output (path), filepath (std::move(path)), Input(path){
+  if(mode=='w'){
+    OpenOutput();
+    WriteSignature();
+    content_start = 0;
   }
-
-  WriteSignature();
-  content_start = 0;
+  if(mode=='r')
+    OpenInput();
 }
 
-void ArchiveFile::Close(){
+void ArchiveFile::CloseOutput(){
   fout.close();
 }
 
+void ArchiveFile::CloseInput (){
+  fin.close();
+}
 
-size_t ArchiveFile::GetInputFileSize (Input *in){
-  size_t size_a = 0;
-  byte stub;
+void ArchiveFile::OpenOutput(){
+  fout.open (filepath);
+  if (!fout.is_open ()){
+      std::cout << "can't open or create file" << filepath << std::endl;
+      fout.close ();
+    }
+}
 
-  while(in->Read(stub))
-    size_a++;
-
-  return size_a;
+void ArchiveFile::OpenInput(){
+  fin.open(filepath,std::ios::binary);
+  if (!fin.is_open()) {
+      std::cout << "file " << filepath << " cant be open" << std::endl;
+      fin.close();
+    }
 }
