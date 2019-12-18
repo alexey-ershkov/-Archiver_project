@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
+
 project(Archiver)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -13,6 +14,7 @@ include_directories(lib_headers/)
 set(ArchiveLib Algorithm.cpp Input.cpp LZW.cpp Output.cpp Selection.cpp Huffman.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp )
 
 add_library(ArchiverEngine STATIC ${ArchiveLib})
+target_link_libraries(ArchiverEngine PUBLIC magic)
 
 add_executable(ArchiveConsole main.cpp)
 target_link_libraries(ArchiveConsole ArchiverEngine)

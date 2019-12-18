@@ -5,6 +5,7 @@
 #ifndef PROTOTIPE_OUTPUT_H
 #define PROTOTIPE_OUTPUT_H
 
+
 #include <fstream>
 #include <iostream>
 #include "IOutputStream.h"
@@ -12,17 +13,20 @@
 typedef unsigned char byte;
 
 class Output : public  IOutputStream {
+
 private:
     std::string filepath;
     std::ofstream fout;
     size_t size = 0;
 public:
     void RemoveFile();
-    Output(std::string _filepath);
+
+    explicit Output(std::string _filepath);
     Output(const Output &input);
     ~Output();
     void Write(byte value);
     size_t GetFileSize();
+
 
 };
 

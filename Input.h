@@ -20,11 +20,13 @@ private:
     size_t count;
 public:
 
+
     Input(const Input &input);
     Input(const std::string _filepath);
     ~Input();
     bool isFileOpenedSuccesful;
     bool isFileEmpty();
+
     void RemoveFile();
     size_t GetFileSize();
     bool Read(byte& value);
