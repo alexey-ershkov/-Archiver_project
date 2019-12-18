@@ -47,17 +47,15 @@ void ArchiveFile::WriteSignature () {
   Write (0x70);
   Write (0x72);
   Write (0x6B);
-  Write (0x00);
-  Write (0x00);
-  Write (0x00);
-  Write (0x00);
+  Write (0x0E);
+}
+
+void ArchiveFile::WriteEndOfES(){
+  Write (0x10);
 }
 
 void ArchiveFile::WriteEntrySeparator(){
-  Write(0x00);  // (00AA00AA) separates entries from each other in compiled archive
-  Write(0xAA);
-  Write(0x00);
-  Write(0xAA);
+  Write(0x0F);  // (0F) separates entries from each other in compiled archive
 }
 
 void ArchiveFile::WriteFile(const std::string& path){
@@ -65,14 +63,14 @@ void ArchiveFile::WriteFile(const std::string& path){
   byte b;
   while (bin.Read (b))
     Write (b);
-  ;
 }
 
 void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
   size_t relative_pointer = 0;
 
+  WriteEntrySeparator();
   for (auto &item : compressed_data){
-    WriteEntrySeparator();
+
 
     Entry entry;
     entry.name = item.first;
@@ -80,7 +78,7 @@ void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& c
     {
       Input bin(item.second);
       entry.start = relative_pointer;
-      relative_pointer += bin.GetFileSize ();
+      relative_pointer += GetInputFileSize(&bin);
       entry.end = relative_pointer++;
     }
     entry.type = TypeIdentifier::SignatureDetect (item.second);
@@ -91,7 +89,9 @@ void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& c
     WriteString (entry.type);
 
     internal_system.push_back(entry);
+    WriteEntrySeparator();
     }
+    WriteEndOfES();
 }
 
 
@@ -105,6 +105,18 @@ ArchiveFile::ArchiveFile (std::string path) :Output (path), filepath (std::move(
   WriteSignature();
   content_start = 0;
 }
+
 void ArchiveFile::Close(){
   fout.close();
+}
+
+
+size_t ArchiveFile::GetInputFileSize (Input *in){
+  size_t size_a = 0;
+  byte stub;
+
+  while(in->Read(stub))
+    size_a++;
+
+  return size_a;
 }

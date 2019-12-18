@@ -14,7 +14,7 @@ class Archiver{
  public:
   static std::map<std::string, std::string> Read(const std::string& path_to_archive);
   static std::map<std::string, std::string> Unpack(const std::string& path_to_archive);
-  static std::string Pack(const std::map<std::string, std::string>& compressed_data);
+  static std::string Pack(const std::map<std::string, std::string>& compressed_data, std::string name);
 };
 
 #endif //_ARCHIVER_HPP_

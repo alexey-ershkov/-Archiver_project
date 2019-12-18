@@ -12,7 +12,7 @@ int main(int argc, char** argv){
   input_data.insert(std::pair(std::string("Archiver.bin"), std::string("Archiver")));
 
 
-  Archiver::Pack(input_data);
+  Archiver::Pack(input_data, "archive");
 
   return 0;
 }

@@ -5,19 +5,20 @@
 #include "Archiver.hpp"
 
 
-std::string Archiver::Pack (const std::map<std::string, std::string>& compressed_data)
+std::string Archiver::Pack (const std::map<std::string, std::string>& compressed_data, std::string name)
 {
-  ArchiveFile archive("Archive.tprk");
+  name.append(".tprk");
+  ArchiveFile archive(name);
 
   archive.CreateEntrySystem(compressed_data);
 
   std::vector<Entry> EntrySystem = archive.ViewArchive ();
 
   for(auto& entry : EntrySystem){
-    //archive.WriteFile (entry.bin_name);
+    archive.WriteFile (entry.bin_name);
   }
   archive.Close();
-  return "Archive.tprk";
+  return name;
 }
 
 
