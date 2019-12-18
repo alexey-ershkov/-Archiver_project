@@ -8,14 +8,14 @@
 #include <algorithm>
 #include <cassert>
 #include "IInputStream.h"
-#include "Input.h"
+#include "../Input.h"
 #include "IOutputStream.h"
 #include <iostream>
 #include <list>
 #include <math.h>
 #include <map>
 #include <stack>
-#include "Output.h"
+#include "../Output.h"
 #include <vector>
 
 
