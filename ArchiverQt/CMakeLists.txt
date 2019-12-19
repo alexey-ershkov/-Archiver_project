@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Core Quick REQUIRED)
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/../CMakeModules")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules")
 set(magic_DIR /usr/local/Cellar/libmagic/5.37)
 
 
@@ -29,6 +29,6 @@ add_subdirectory(../ build)
 target_compile_definitions(ArchiverQt
   PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 target_link_libraries(ArchiverQt
-  PRIVATE Qt5::Core Qt5::Quick ArchiverEngine ${LIBMAGIC_LIBRARIES})
+  PRIVATE Qt5::Core Qt5::Quick ArchiverEngine)
 
 
