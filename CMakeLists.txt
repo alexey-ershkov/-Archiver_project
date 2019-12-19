@@ -13,12 +13,6 @@ include(FindPackageHandleStandardArgs)
 
 include_directories(${MAGIC_INCLUDE_DIR})
 
-if(NOT MAGIC_INCLUDE_DIR)
-    message(SEND_ERROR "Failed to find magic.h")
-endif()
-if(NOT MAGIC_LIBRARY)
-    message(SEND_ERROR "Failed to find the magic library")
-endif()
 
 find_package (LibMagic REQUIRED)
 find_package(GTest REQUIRED)
