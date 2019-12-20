@@ -8,15 +8,13 @@ Item{
     width: parent.width
     height: parent.height
 
-        RoundButton {
+        ProjectButton {
             id: new_button
             x: 119
             y: parent.height*0.4
             width: parent.width*0.7
             height: parent.height*0.15
             text: qsTr("Создать новый архив")
-            highlighted: true
-            flat: false
             anchors.horizontalCenter: parent.horizontalCenter
 
             onClicked: {
@@ -25,19 +23,13 @@ Item{
             }
         }
 
-       RoundButton {
+       ProjectButton {
             id: open_button
             x: 109
             y: parent.height*0.6
             width: parent.width*0.7
             height: parent.height*0.15
             text: qsTr("Открыть существующий архив")
-            wheelEnabled: false
-            spacing: 8
-            hoverEnabled: true
-            anchors.horizontalCenter: parent.horizontalCenter
-            flat: false
-            highlighted: true
 
             onClicked: {
                 console.log("open_button clicked")

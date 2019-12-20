@@ -15,7 +15,7 @@ ApplicationWindow {
     Loader{
         id: pageLoader
         anchors.fill: parent
-        source: "HomeView.qml"
+        source: "CreateView.qml"
     }
 
 

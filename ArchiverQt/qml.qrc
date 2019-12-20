@@ -6,5 +6,8 @@
         <file>CreateView.qml</file>
         <file>OpenView.qml</file>
         <file>ShowView.qml</file>
+        <file>FileModel.qml</file>
+        <file>ShowFiles.qml</file>
+        <file>ProjectButton.qml</file>
     </qresource>
 </RCC>
