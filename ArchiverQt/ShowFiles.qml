@@ -3,14 +3,19 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import QtQuick.Dialogs 1.2
-import QtQuick.Controls.Universal 2.3
 
-Item {
+
+
+Rectangle{
 
 
     property alias view: view
 
 
+    border {
+        width: 2
+        color: "black"
+    }
 
 
 
@@ -34,16 +39,13 @@ Item {
             }
         }
 
-        anchors.margins: 10
+
         anchors.fill: parent
         spacing: 5
         keyNavigationEnabled: true
-        clip: false
+        clip: true
 
-        highlight: Rectangle {
-            color: "skyblue"
-        }
-        highlightFollowsCurrentItem: true
+
 
         flickableDirection: Flickable.VerticalFlick
         boundsBehavior: Flickable.StopAtBounds
@@ -68,7 +70,7 @@ Item {
                 anchors.margins: 5
                 anchors.fill: parent
                 radius: height / 2
-                color: Universal.color(Universal.Emerald)
+                color: isCurrent ? "black" : "white"
                 border {
                     color: "black"
                     width: 1
@@ -76,7 +78,7 @@ Item {
 
                 Text {
                     anchors.centerIn: parent
-                    color: "white"
+                    color: isCurrent ? "white" : "black"
                     renderType: Text.NativeRendering
                     text: model.text.replace(new RegExp("file:\/\/\/([A-Za-z0-9\-_~ ]+\/)+"),"")
                 }
