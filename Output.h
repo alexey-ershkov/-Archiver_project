@@ -14,15 +14,18 @@ typedef unsigned char byte;
 class Output : public  IOutputStream {
 private:
     std::string filepath;
-    std::ofstream fout;
+
     size_t size = 0;
 public:
+    std::ofstream fout;
+    std::ofstream GetFile() override;
+    std::string GetFilePath() override;
     void RemoveFile();
     Output(std::string _filepath);
     Output(const Output &input);
     ~Output();
     void Write(byte value);
-    size_t GetFileSize();
+    size_t GetFileSize() override;
 
 };
 

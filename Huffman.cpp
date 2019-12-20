@@ -2,10 +2,16 @@
 
 using namespace std;
 
-Huffman::Huffman(): cellSize(8), cellSizeBinary(256) {
+Huffman::Huffman(std::vector<std::string> choosen_formats): cellSize(8), cellSizeBinary(256) {
     vector<string> new_formats = {"txt", "rtf", "doc", "docx", "html", "pdf", "odt"};
     Formats = new_formats;
-
+    if(choosen_formats.size() != 0){
+        if(choosen_formats[0] != ""){
+            for(auto &it : choosen_formats){
+                Formats.push_back(it);
+            }
+        }
+    }
 }
 
 bool Huffman::ShouldChoose(string type_file) {
@@ -38,7 +44,7 @@ void Huffman::buildTable(shared_ptr<Node> root, vector<bool> &bits, map <char, v
     bits.pop_back();
 }
 
-void Huffman::WriteTree(shared_ptr<Node> root, IOutputStream& compressed){
+void Huffman::WriteTree(shared_ptr<Node> root, IOutputStream& compressed) {
     if (!root){
         return;
     }
@@ -51,7 +57,7 @@ void Huffman::WriteTree(shared_ptr<Node> root, IOutputStream& compressed){
         compressed.Write('0');
     }
 }
-shared_ptr<Node> Huffman::ReadTree(IInputStream& compressed){
+shared_ptr<Node> Huffman::ReadTree(IInputStream& compressed) {
     unsigned char charSize;
     int intSize;
     compressed.Read(charSize);

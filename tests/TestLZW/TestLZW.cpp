@@ -58,63 +58,47 @@ TEST(LZWTest, TestGetName2){
 
 
 
-TEST(LZWTest, TestCompressDataTxt5){
+TEST(LZWTest, TestCompressDataTxt1){
     LZW alg_lzw;
     Input input("../../files_for_compress/test1.txt");
     Output output("../../compressed_files/test1.bin");
     alg_lzw.Compress(input, output);
-    ASSERT_EQ(true, alg_lzw.GetCompressionRatio() <= 1);
+    ASSERT_EQ(true, alg_lzw.compressionRatio <= 1);
 }
-
-TEST(LZWTest, TestCompressDataJpg6){
-    LZW alg_lzw;
-    Input input("../../files_for_compress/test6.jpg");
-    Output output("../../compressed_files/test1.bin");
-    alg_lzw.Compress(input, output);
-    ASSERT_EQ(true, alg_lzw.GetCompressionRatio() <= 1);
-}
-
-
 
 TEST(LZWTest, TestCompressDataPng9){
     LZW alg_lzw;
     Input input("../../files_for_compress/test9.png");
-    Output output("../../compressed_files/test1.bin");
+    Output output("../../compressed_files/test9.bin");
     alg_lzw.Compress(input, output);
-    ASSERT_EQ(true, alg_lzw.GetCompressionRatio() <= 1);
+    ASSERT_EQ(false, alg_lzw.compressionRatio <= 1);
 }
 
+TEST(SelectorTest, TestDecompressDataTxt1){
+    LZW alg_huffman;
+    Input input("../../compressed_files/test1.bin");
+    Output output("../../decompressed_files/test1.txt");
+    alg_huffman.Decompress(input, output);
 
+    bool result = IsFilesEqual("../../files_for_compress/test1.txt", "../../decompressed_files/test1.txt");
 
-
-TEST(LZWTest, TestDecompressDataTxt5){
-    LZW alg_lzw;
-    Input input("../../compressed_files/test5.bin");
-    Output output("../../decompressed_files/test5.txt");
-
-    alg_lzw.Decompress(input, output);
-    bool result = IsFilesEqual("../../files_for_compress/test5.txt", "../../decompressed_files/test5.txt");
     ASSERT_EQ(true, result);
 }
 
-TEST(SelectorTest, TestDecompressDataJpg6){
-    LZW alg_lzw;
-    Input input("../../compressed_files/test6.bin");
-    Output output("../../decompressed_files/test6.png");
-    alg_lzw.Decompress(input, output);
-    bool result = IsFilesEqual("../../files_for_compress/test6.png", "../../decompressed_files/test6.png");
-    ASSERT_EQ(true, result);
-}
-
-TEST(LZWTest, TestDecompressDataPng9){
-    LZW alg_lzw;
+TEST(SelectorTest, TestDecompressDataPng9){
+    LZW alg_huffman;
     Input input("../../compressed_files/test9.bin");
-    Output output("../../decompressed_files/test9.bin");
+    Output output("../../decompressed_files/test9.png");
+    alg_huffman.Decompress(input, output);
 
-    alg_lzw.Decompress(input, output);
     bool result = IsFilesEqual("../../files_for_compress/test9.png", "../../decompressed_files/test9.png");
+
     ASSERT_EQ(true, result);
 }
+
+
+
+
 
 
 int main(int argc, char **argv) {

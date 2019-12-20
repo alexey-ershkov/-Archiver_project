@@ -35,9 +35,21 @@ void Output::Write(byte value) {
 }
 
 size_t Output::GetFileSize() {
-    return size;
+    fout.seekp(0, std::ios::end);
+    long size_file = fout.tellp();
+//    return size;
+    return size_file;
 }
 
 Output::~Output() {
     fout.close();
 }
+
+std::ofstream Output::GetFile() {
+    return std::move(fout);
+}
+
+std::string Output::GetFilePath(){
+    return filepath;
+}
+

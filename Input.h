@@ -16,17 +16,19 @@ typedef unsigned char byte;
 class Input : public IInputStream {
 private:
     std::string filepath;
-    std::ifstream fin;
+
     size_t count;
 public:
-
+    std::string GetFilePath() override;
+    std::ifstream fin;
+    std::ifstream GetFile() override;
     Input(const Input &input);
     Input(const std::string _filepath);
     ~Input();
     bool isFileOpenedSuccesful;
     bool isFileEmpty();
     void RemoveFile();
-    size_t GetFileSize();
+    size_t GetFileSize() override ;
     bool Read(byte& value);
 
 
