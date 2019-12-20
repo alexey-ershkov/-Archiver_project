@@ -41,7 +41,7 @@ class ArchiveFile : private Output, Input{
  public:    //todo This class is suspiciously large. Maybe it should be refactored
   explicit ArchiveFile (std::string path,  char mode);
 
-  void CreateEntrySystem(const std::map<std::string, std::string>& compressed_data);
+  unsigned long int CreateEntrySystem(const std::map<std::string, std::string>& compressed_data);
   std::vector<Entry> ViewArchive(){ return internal_system;};
 
   void WriteFile (const std::string& path);
@@ -52,7 +52,7 @@ class ArchiveFile : private Output, Input{
   void OpenOutput();
   void OpenInput();
 
-  size_t GetPointer (const std::string &in);
+  static size_t GetPointer (const std::string &in);
   static size_t GetInputFileSize(Input *in);
   bool GetEntry(Entry &entry);
   std::string GetLine();

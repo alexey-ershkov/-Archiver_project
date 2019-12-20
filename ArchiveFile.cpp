@@ -19,8 +19,10 @@ size_t ArchiveFile::GetInputFileSize (Input *in){
 void ArchiveFile::WriteString(const std::string& s) {
   for(auto& ch : s){
       Write(ch);
+      content_start+=1;
     }
   Write (0x00);
+  content_start++;
 }
 
 size_t ArchiveFile::GetPointer(const std::string& in){
@@ -32,7 +34,7 @@ size_t ArchiveFile::GetPointer(const std::string& in){
 }
 
 std::string ArchiveFile::makeString(const std::string& in){
-  int diff  = 16 - in.length();
+  unsigned int diff  = 16 - in.length();
   std::string out;
   for(int i = 0; i < diff; i++){
       out.push_back('0');
@@ -57,14 +59,17 @@ void ArchiveFile::WriteSignature () {
   Write (0x72);
   Write (0x6B);
   Write (0x0E);
+  content_start+=5;
 }
 
 void ArchiveFile::WriteEndOfES(){
-  Write (0x10);
+  content_start += 17; // there are some trouble in math, fixed with this constant
+  WritePointer (content_start);
 }
 
 void ArchiveFile::WriteEntrySeparator(){
   Write(0x0F);  // (0F) separates entries from each other in compiled archive
+  content_start++;
 }
 
 void ArchiveFile::WriteFile(const std::string& path){
@@ -74,7 +79,7 @@ void ArchiveFile::WriteFile(const std::string& path){
     Write (b);
 }
 
-void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
+unsigned long int ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
   size_t relative_pointer = 0;
   unsigned long int entry_system_length = compressed_data.size();
   WritePointer (entry_system_length);
@@ -101,15 +106,18 @@ void ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& c
     internal_system.push_back(entry);
     WriteEntrySeparator();
     }
-    //WriteEndOfES();
+
+  WriteEndOfES();
+  return content_start;
 }
 
 
 ArchiveFile::ArchiveFile (std::string path, char mode) :Output (path), filepath (std::move(path)), Input(path){
   if(mode=='w'){
     OpenOutput();
-    WriteSignature();
     content_start = 0;
+    WriteSignature();
+
   }
   if(mode=='r'){
       OpenInput ();
