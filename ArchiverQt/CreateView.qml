@@ -33,10 +33,10 @@ Item {
     ShowFiles {
         id:show
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenterOffset: -parent.height*0.12
+        anchors.verticalCenterOffset: -parent.height*0.
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width*0.8
-        height: parent.height*0.6
+        height: parent.height*0.5
         view.model: FileModel {
          id:fileShow
         }
