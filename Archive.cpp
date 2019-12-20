@@ -2,17 +2,21 @@
 // Created by Алексей on 2019-11-17.
 //
 
+
 #include "Archive.h"
 
 ModelResponse<> Archive::handle(Request request) {
     ModelResponse<> response;
     response.module = ModelResponse<>::archive;
     try {
+        std::map <std::string, std::string> files_to_archive;
         for (auto it : request.filenames){
             Selection selection(TypeIdentifier::SignatureDetect(it));
             selection.Compress(it, new_name(it));
+            files_to_archive.insert(std::make_pair(it, new_name(it)));
         }
-
+        Archiver archiver;
+        archiver.Pack(files_to_archive, "../media", "test_archive");
         ////Вызов алгоритмов на проверку типа данных
         /// Сжатия
         /// И Архивации

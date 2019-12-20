@@ -11,6 +11,8 @@
 #include <stdexcept>
 #include "TypeIdentifier.hpp"
 
+#include "Archiver.hpp"
+
 
 class Archive : public IHandler<> {
 public:

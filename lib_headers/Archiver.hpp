@@ -15,7 +15,7 @@ class Archiver{
   unsigned long int content_start;
  public:
   std::vector<Entry> Read(const std::string& path_to_archive);
-  std::string Pack(const std::map<std::string, std::string>& compressed_data, std::string path_to_archive,  std::string& name);
+  std::string Pack(const std::map<std::string, std::string>& compressed_data, std::string path_to_archive,  std::string name);
   static std::map<std::string, std::string> Unpack (const std::string &path_to_archive, const std::vector<Entry>& EntrySystem);
   static std::pair<std::string, std::string> UnpackSingle(const std::string &path_to_archive,
                                                           const std::vector<Entry>& EntrySystem, std::string name);

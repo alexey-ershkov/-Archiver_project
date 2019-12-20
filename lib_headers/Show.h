@@ -7,6 +7,7 @@
 
 
 #include "IHandler.h"
+#include "Archiver.hpp"
 #include <stdexcept>
 
 class Show : public IHandler<> {

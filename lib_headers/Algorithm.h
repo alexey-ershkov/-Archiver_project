@@ -12,7 +12,7 @@
 #include "IOutputStream.h"
 #include <iostream>
 #include <list>
-#include <math.h>
+#include <cmath>
 #include <map>
 #include <stack>
 #include "Output.h"

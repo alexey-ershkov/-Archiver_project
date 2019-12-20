@@ -8,7 +8,8 @@
 
 
 std::string Archiver::Pack (const std::map<std::string, std::string>& compressed_data, std::string path_to_archive,
-    std::string& name){
+    std::string name){
+    path_to_archive.append("/");
   path_to_archive.append(name);
   path_to_archive.append(".tprk");
   ArchiveFile archive(path_to_archive, 'w');
