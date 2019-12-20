@@ -12,7 +12,7 @@ Item {
         }
         onRejected: {
             console.log("Canceled")
-            pageLoader.source = "HomeView.qml"
+            pageLoader.source = "CreateView.qml"
         }
         Component.onCompleted: visible = true
 

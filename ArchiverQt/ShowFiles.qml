@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import QtQuick.Dialogs 1.2
+import QtQuick.Controls.Material 2.3
 
 
 
@@ -14,7 +15,8 @@ Rectangle{
 
     border {
         width: 2
-        color: "black"
+        color: Material.accent
+
     }
 
 
@@ -70,15 +72,15 @@ Rectangle{
                 anchors.margins: 5
                 anchors.fill: parent
                 radius: height / 2
-                color: isCurrent ? "black" : "white"
+                color: isCurrent ? Material.accent : "white"
                 border {
-                    color: "black"
+                    color: Material.accent
                     width: 1
                 }
 
                 Text {
                     anchors.centerIn: parent
-                    color: isCurrent ? "white" : "black"
+                    color: isCurrent ? "white" : Material.accent
                     renderType: Text.NativeRendering
                     text: model.text.replace(new RegExp("file:\/\/\/([A-Za-z0-9\-_~ ]+\/)+"),"")
                 }

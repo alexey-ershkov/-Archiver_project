@@ -1,3 +1,4 @@
+
 import QtQuick 2.9
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.1
@@ -45,10 +46,12 @@ Item {
 
     ProjectButton {
         id: choose_button
-        anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width*0.7
+
+        width: parent.width*0.35
         height: parent.height*0.15
         text: qsTr("Выбрать файлы")
+        anchors.leftMargin: parent.width*0.1
+        anchors.left: parent.left
         anchors.bottomMargin: parent.height*0.1
         anchors.bottom: parent.bottom
 
@@ -80,7 +83,42 @@ Item {
         }
     }
 
+    ProjectButton {
+        id: archive_button
+        x: -9
+        y: 346
+        width: parent.width*0.35
+        height: parent.height*0.15
+        text: qsTr("Зархивировать")
+        anchors.bottomMargin: parent.height*0.1
+        anchors.rightMargin: parent.width*0.1
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        enabled: fileShow.count === 0 ? false :true
+        onPressed: {
+            folder.open()
+            console.log ("Archive files event")
 
+
+        }
+    }
+
+    FileDialog {
+        id: folder
+        title: "Please choose a file"
+        folder: shortcuts.documents
+        selectMultiple: false
+        selectFolder: true
+        onAccepted: {
+            console.log("file would be save at: " + fileUrl)
+
+            pageLoader.source = "HomeView.qml"
+            //TODO модель на с++ и отправка файлов в модель
+        }
+        onRejected: {
+            console.log("Canceled")
+        }
+    }
 }
 
 

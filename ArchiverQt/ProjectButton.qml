@@ -6,11 +6,8 @@ Button {
     wheelEnabled: false
     spacing: 8
     hoverEnabled: true
-    anchors.horizontalCenter: parent.horizontalCenter
     highlighted: true
-    palette {
-            button: "green"
-        }
+
 
 
 }
