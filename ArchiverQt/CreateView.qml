@@ -3,14 +3,18 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.1
 import QtQuick.LocalStorage 2.0
 import QtQuick.Dialogs 1.2
-import QtQuick.Controls.Universal 2.3
+import QtQuick.Controls.Material 2.3
+
 
 
 
 Item {
     id: element
 
+
+
     Text {
+        color: Material.accent
         text: qsTr("Выбранные файлы")
         font.pointSize: 20
         verticalAlignment: Text.AlignVCenter
@@ -49,6 +53,7 @@ Item {
         anchors.bottom: parent.bottom
 
         onClicked: {
+            theme: Material.Dark
             console.log("choose_button clicked")
             fileDialog.open();
 

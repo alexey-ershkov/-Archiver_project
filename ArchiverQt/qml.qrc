@@ -9,5 +9,7 @@
         <file>FileModel.qml</file>
         <file>ShowFiles.qml</file>
         <file>ProjectButton.qml</file>
+        <file>Styles.qml</file>
+        <file>ProjectMenuBar.qml</file>
     </qresource>
 </RCC>
