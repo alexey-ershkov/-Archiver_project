@@ -22,7 +22,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(lib_headers/)
 
 
-set(ArchiveLib Algorithm.cpp Archiver.cpp ArchiveFile.cpp TypeIdentifier.cpp Input.cpp LZW.cpp Output.cpp Selection.cpp Huffman.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp )
+set(ArchiveLib Algorithm.cpp Archiver.cpp CodeReader.cpp CodeWriter.cpp EncoderDictionary.cpp ArchiveFile.cpp TypeIdentifier.cpp Input.cpp LZW.cpp Output.cpp Selection.cpp Huffman.cpp Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp )
 
 add_library(ArchiverEngine STATIC ${ArchiveLib})
 target_link_libraries(ArchiverEngine ${LIBMAGIC_LIBRARIES})

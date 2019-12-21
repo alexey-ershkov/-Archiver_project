@@ -4,8 +4,7 @@
 #include "Algorithm.h"
 #include <memory>
 
-struct Node
-{
+struct Node {
     unsigned char c;
     int freq;
     std::shared_ptr<Node> left;
@@ -20,8 +19,7 @@ struct Node
     }
 };
 
-struct nodeComparator
-{
+struct nodeComparator {
     bool operator ()(const std::shared_ptr<Node> left, const std::shared_ptr<Node> right) const
     {
         return left->freq < right->freq;
@@ -30,7 +28,7 @@ struct nodeComparator
 
 class Huffman : public Algorithm {
 public:
-    Huffman();
+    Huffman(std::vector<std::string> choosen_formats = {""});
     ~Huffman() = default;
     bool ShouldChoose(std::string type_file) override;
     std::string GetName();
@@ -43,7 +41,6 @@ private:
     std::shared_ptr<Node> ReadTree(IInputStream& compressed);
     void Encode(IInputStream& original, IOutputStream& compressed) override;
     void Decode(IInputStream& compressed, IOutputStream& original) override;
-/*PMPL*/
 };
 
 

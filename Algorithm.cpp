@@ -12,7 +12,6 @@ double Algorithm::Compress(Input& input, Output& output){
         return compressionRatio;
     }
     assert("File for compress is empty or doesn't exist");
-
 }
 
 

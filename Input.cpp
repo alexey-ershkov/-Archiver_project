@@ -54,3 +54,6 @@ bool Input::isFileEmpty(){
 }
 
 
+std::string Input::GetFilePath(){
+    return filepath;
+}

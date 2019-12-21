@@ -3,17 +3,26 @@
 #include "Selection.h"
 using namespace std;
 
-Selection::Selection(string _typeFile) : typeFile(_typeFile), compressionRatio(0) {
+Selection::Selection(string _typeFile, vector<shared_ptr<Algorithm>> added_algos) : isActive(false), typeFile(_typeFile), compressionRatio(0), addedAlgos(added_algos) {
 
 
-    Add(shared_ptr<Huffman>(new Huffman));
-    Add(shared_ptr<LZW>(new LZW));
-
-    ChooseAlgorithm(); // getActive
 }
 
+void Selection::GetActive() {
+    Add(shared_ptr<Huffman>(new Huffman));
+    Add(shared_ptr<LZW>(new LZW));
+    for(auto &it : addedAlgos){
+        Add(it);
+    }
+    ChooseAlgorithm();
+    isActive = true;
+}
 
 double Selection::Compress(string input_filepath, string output_filepath){
+    if(!isActive){
+        GetActive();
+    }
+
     Input input(input_filepath);
     Output output(output_filepath);
 
@@ -30,6 +39,9 @@ double Selection::Compress(string input_filepath, string output_filepath){
 }
 
 void Selection::Decompress(string input_filepath, string output_filepath){
+    if(!isActive){
+        GetActive();
+    }
     Input input(input_filepath);
     Output output(output_filepath);
     algo->Decompress(input, output);
@@ -59,6 +71,9 @@ void Selection::ChooseAlgorithm() {
 }
 
 string Selection::GetNameAlgorithm(){
+    if(!isActive){
+        GetActive();
+    }
    return algo->GetName();
 }
 
