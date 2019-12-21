@@ -5,6 +5,8 @@ import QtQuick.Controls 2.5
 
 MenuBar {
     property var themeSwitch: themeSwitch
+    property var isFullscreen: isFullscreen
+
     Menu {
         title: qsTr("Файл")
         Action {
@@ -28,17 +30,30 @@ MenuBar {
             text: qsTr("Темная тема")
             checkable: true
         }
+        Action {
+            id: isFullscreen
+            text: qsTr("На весь экран")
+            checkable: true
+        }
+
     }
     Menu {
         title: qsTr("Cправка")
         Action { text: qsTr("Исходники")
             onTriggered:  Qt.openUrlExternally("https://github.com/alexey-ershkov/Archiver_project")
         }
-        Action { text: qsTr("О нас") }
+        Menu {
+            title: qsTr("О нас")
+            Action { text: qsTr("Алексей Ершков")
+                onTriggered:  Qt.openUrlExternally("https://vk.com/ershkov_alex")
+            }
+            Action { text: qsTr("Александр Долгавин")
+                onTriggered:  Qt.openUrlExternally("https://vk.com/alexandr_879")
+            }
+            Action { text: qsTr("Артем Давтян")
+                onTriggered:  Qt.openUrlExternally("https://vk.com/davtart")
+            }
+        }
     }
-    MenuSeparator{}
-    Menu {
-        title: qsTr("Home")
 
-    }
 }

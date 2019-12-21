@@ -14,10 +14,11 @@ Item {
 
 
 
+
     Text {
         color: Material.accent
         text: qsTr("Выбранные файлы")
-        font.pointSize: 20
+        font.pointSize: parent.height*0.05
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         anchors.topMargin: parent.height*0.02
@@ -33,26 +34,29 @@ Item {
     ShowFiles {
         id:show
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.verticalCenterOffset: -parent.height*0.
+        anchors.verticalCenterOffset: -parent.height*0.165
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width*0.8
         height: parent.height*0.5
         view.model: FileModel {
-         id:fileShow
+         id:fileModel
         }
 
     }
 
 
+
+
     ProjectButton {
         id: choose_button
 
-        width: parent.width*0.35
+        width: parent.width*0.38
         height: parent.height*0.15
         text: qsTr("Выбрать файлы")
+        font.pointSize: parent.height*0.03
         anchors.leftMargin: parent.width*0.1
         anchors.left: parent.left
-        anchors.bottomMargin: parent.height*0.1
+        anchors.bottomMargin: parent.height*0.25
         anchors.bottom: parent.bottom
 
         onClicked: {
@@ -72,7 +76,7 @@ Item {
                 console.log("You chose: ")
                 for (var i = 0; i < fileUrls.length; ++i) {
                     console.log (fileUrls[i])
-                    fileShow.append({text: fileUrls[i]})
+                    fileModel.append({text: fileUrls[i]})
                 }
 
                 //TODO модель на с++ и отправка файлов в модель
@@ -87,38 +91,57 @@ Item {
         id: archive_button
         x: -9
         y: 346
-        width: parent.width*0.35
+        width: parent.width*0.38
         height: parent.height*0.15
-        text: qsTr("Зархивировать")
-        anchors.bottomMargin: parent.height*0.1
+        text: qsTr("Заархивировать")
+        font.pointSize: parent.height*0.03
+        anchors.bottomMargin: parent.height*0.25
         anchors.rightMargin: parent.width*0.1
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        enabled: fileShow.count === 0 ? false :true
+        enabled: fileModel.count === 0 || showPath.count === 0 ? false :true
         onPressed: {
-            folder.open()
             console.log ("Archive files event")
-
-
+            pageLoader.source = "SuccessMessage.qml"
         }
     }
 
     FileDialog {
         id: folder
-        title: "Please choose a file"
+        title: "Please choose a folder"
         folder: shortcuts.documents
         selectMultiple: false
         selectFolder: true
         onAccepted: {
-            console.log("file would be save at: " + fileUrl)
-
-            pageLoader.source = "HomeView.qml"
+            console.log("file would be save at: " + fileUrls)
+            showPath.clear()
+            showPath.append ({text: fileUrl})
             //TODO модель на с++ и отправка файлов в модель
         }
         onRejected: {
             console.log("Canceled")
         }
     }
+
+    ProjectButton {
+        id: path_button
+        x: 2
+        y: 287
+        width: parent.width*0.8
+        height: parent.height*0.15
+        text:qsTr("сохранить в")
+        font.pointSize: parent.height*0.03
+        anchors.bottomMargin: parent.height*0.1
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        onClicked: folder.open()
+    }
+    PathModel {
+                id: showPath
+
+            }
+
+
 }
 
 

@@ -17,6 +17,7 @@ Item{
         height: parent.height*0.15
         anchors.horizontalCenter: parent.horizontalCenter
         text: qsTr("Создать новый архив")
+        font.pointSize: parent.height*0.03
 
 
         onClicked: {
@@ -33,6 +34,7 @@ Item{
         height: parent.height*0.15
         anchors.horizontalCenter: parent.horizontalCenter
         text: qsTr("Открыть существующий архив")
+        font.pointSize: parent.height*0.03
 
         onClicked: {
             console.log("open_button clicked")

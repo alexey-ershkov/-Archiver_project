@@ -11,5 +11,11 @@
         <file>ProjectButton.qml</file>
         <file>Styles.qml</file>
         <file>ProjectMenuBar.qml</file>
+        <file>PathModel.qml</file>
+        <file>ShowPath.qml</file>
+        <file>SuccessMessage.qml</file>
+        <file>Success.png</file>
+        <file>Error.png</file>
+        <file>ErrorMessage.qml</file>
     </qresource>
 </RCC>

@@ -7,6 +7,7 @@ import QtQuick.Controls.Material 2.3
 
 
 ApplicationWindow {
+    id: applicationWindow
     visible: true
     width: 640
     height: 480
@@ -15,6 +16,8 @@ ApplicationWindow {
 
     Material.theme: menu.themeSwitch.checked ? Material.Dark : Material.Light
     Material.accent: menu.themeSwitch.checked ? Material.Red : Material.Blue
+    flags: menu.isFullscreen.checked ? Qt.FramelessWindowHint : Qt.MSWindowsOwnDC
+    visibility: menu.isFullscreen.checked ? Qt.WindowFullScreen : Qt.WindowMinimized
 
     menuBar: ProjectMenuBar {
         id: menu
@@ -35,6 +38,17 @@ ApplicationWindow {
 
 
 
+        Text {
+
+            id: copyright
+            text: qsTr("Created by TPRK team. All rights reserved")
+            font.pointSize: parent.height*0.03
+            anchors.bottomMargin: parent.height*0.05
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: Material.accent
+            font.bold: true
+        }
 
 
 

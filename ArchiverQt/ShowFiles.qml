@@ -19,11 +19,6 @@ Rectangle{
 
     }
 
-
-
-
-
-
     ListView {
         id: view
         signal up()
@@ -71,7 +66,6 @@ Rectangle{
                 focus: true
                 anchors.margins: 5
                 anchors.fill: parent
-                radius: height / 2
                 color: isCurrent ? Material.accent : "white"
                 border {
                     color: Material.accent
