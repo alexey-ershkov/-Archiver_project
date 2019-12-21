@@ -5,34 +5,32 @@
 #ifndef ARCHIVER_PRESENTER_H
 #define ARCHIVER_PRESENTER_H
 
-
-#include "IHandler.h"
-#include "Show.h"
 #include "Archive.h"
 #include "Dearchive.h"
-#include "Message.h"
-#include "ModelResponse.h"
+#include "IHandler.h"
 #include <map>
+#include "Message.h"
 #include <memory>
+#include "ModelResponse.h"
+#include "Show.h"
 
 
-class View;
+
+
+
+class ConsoleView;
 
 class Presenter {
 private:
-    ////для обработки IHandle с другим типом данных просто добавляем новый вектор
-    /// и определяем поведение в send_request
-    /// в данной реализации хватает работы с ветором строк
     std::vector<std::shared_ptr<IHandler<>>> handlers;
-    //не смог разрешить циклическую ссылку через shared_ptr и weak_ptr, т.к.
-    // view удалаяется до обращения к нему по weak_ptr
-    View *view;
+    ConsoleView *view;
 public:
-    Presenter (View *input) : view(input) {
+    Presenter (ConsoleView *input) : view(input) {
         add_handler(std::make_shared<Dearchive>());
         add_handler(std::make_shared<Archive>());
         add_handler (std::make_shared<Show>());
     };
+    ///Добавление handlers снаружи
     bool add_handler (std::shared_ptr<IHandler<>> );
     void send_request(Request, std::ostream&);
     void view_sender(Message message, std::ostream&);

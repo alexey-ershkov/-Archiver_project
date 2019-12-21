@@ -1,14 +1,13 @@
-#include "View.h"
-#include <cstring>
+#include "ConsoleView.h"
 
 
 
 int main(int argc, char** argv) {
-    View *view;
+    ConsoleView *view;
     if (argc > 1){
-        view = new View(true);
+        view = new ConsoleView(true);
     } else {
-        view = new View;
+        view = new ConsoleView;
     }
     auto screen = update_action::DEFAULT;
     while (screen != update_action::CLOSE){

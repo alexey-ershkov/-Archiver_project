@@ -2,7 +2,7 @@
 // Created by Алексей on 2019-11-08.
 //
 
-#include "View.h"
+#include "ConsoleView.h"
 #include "Presenter.h"
 
 
@@ -10,7 +10,7 @@
 
 
 
-update_action View::update(enum update_action action, std::istream& input, std::ostream& output) {
+update_action ConsoleView::update(enum update_action action, std::istream& input, std::ostream& output) {
     system_clear();
     switch (action) {
         case SHOW:
@@ -26,23 +26,23 @@ update_action View::update(enum update_action action, std::istream& input, std::
     }
 }
 
-update_action View::show_screen(std::istream& input, std::ostream& output) {
+update_action ConsoleView::show_screen(std::istream& input, std::ostream& output) {
     std::string shift = set_center(output);
     output << shift + "Choose action: \n" + shift +
                  "1) Choose archive file \n" + shift +
                  "2) Back \n" << std::endl;
-    int select;
-    input >> select;
+    int user_input;
+    input >> user_input;
     //константы выбора
-    while (select < 1 || select > 2)
+    while (user_input < 1 || user_input > 2)
     {
         send_message(selection_error, output);
         output << shift + "Choose action: \n" + shift +
                   "1) Choose archive file \n" + shift +
                   "2) Back \n" << std::endl;
-        input >> select;
+        input >> user_input;
     }
-    if (select == 1) {
+    if (user_input == 1) {
         auto archive_file = read_file(input, output);
         if (archive_file == "exit")
             return update_action::DEFAULT;
@@ -58,23 +58,23 @@ update_action View::show_screen(std::istream& input, std::ostream& output) {
     return update_action::DEFAULT;
 }
 
-update_action View::archive_screen(std::istream& input, std::ostream& output) {
+update_action ConsoleView::archive_screen(std::istream& input, std::ostream& output) {
     std::string shift = set_center(output);
     output << shift + "Choose action: \n" + shift +
                  "1) Choose files to archive \n" + shift +
                  "2) Back \n" << std::endl;
-    int select;
-    input >> select;
-    //константы выбора
-    while (select < 1 || select > 2)
+    int user_input;
+    input >> user_input;
+    //константы выбора пункта в меню
+    while (user_input < 1 || user_input > 2)
     {
         send_message(selection_error, output);
         output << shift + "Choose action: \n" + shift +
                   "1) Choose files to archive \n" + shift +
                   "2) Back \n" << std::endl;
-        input >> select;
+        input >> user_input;
     }
-    if (select == 1) {
+    if (user_input == 1) {
         std::vector<std::string> files = read_files(input, output);
         if (files [0] == "exit")
             return update_action::DEFAULT;
@@ -88,23 +88,23 @@ update_action View::archive_screen(std::istream& input, std::ostream& output) {
     return update_action::DEFAULT;
 }
 
-update_action View::dearchive_screen(std::istream& input, std::ostream& output) {
+update_action ConsoleView::dearchive_screen(std::istream& input, std::ostream& output) {
     std::string shift = set_center(output);
     output << shift + "Choose action: \n" + shift +
                  "1) Choose archive file \n" + shift +
                  "2) Back \n" << std::endl;
-    int select;
-    input >> select;
+    int user_input;
+    input >> user_input;
     //константы выбора
-    while (select < 1 || select > 2)
+    while (user_input < 1 || user_input > 2)
     {
         send_message(selection_error, output);
         output << shift + "Choose action: \n" + shift +
                   "1) Choose archive file \n" + shift +
                   "2) Back \n" << std::endl;
-        input >> select;
+        input >> user_input;
     }
-    if (select == 1) {
+    if (user_input == 1) {
         auto archive_file = read_file(input, output);
         if (archive_file == "exit")
             return update_action::DEFAULT;
@@ -119,17 +119,17 @@ update_action View::dearchive_screen(std::istream& input, std::ostream& output) 
     return update_action::DEFAULT;
 }
 
-update_action View::main_screen(std::istream& input, std::ostream& output) {
+update_action ConsoleView::main_screen(std::istream& input, std::ostream& output) {
     std::string shift = set_center(output);
     output << shift + "Choose action: \n" + shift +
                  "1) Show files in archive \n" + shift +
                  "2) Archive files \n" + shift +
                  "3) Dearchive files \n" +shift +
                  "4) Exit \n" << std::endl;
-    int select;
-    input >> select;
+    int user_input;
+    input >> user_input;
     //константы выбора
-    while (select < 1 || select > 4) {
+    while (user_input < 1 || user_input > 4) {
         send_message(selection_error, output);
         set_center(output);
         output << shift + "Choose action: \n" + shift +
@@ -137,14 +137,14 @@ update_action View::main_screen(std::istream& input, std::ostream& output) {
                   "2) Archive files \n" + shift +
                   "3) Dearchive files \n" +shift +
                   "4) Exit \n" << std::endl;
-        input >> select;
+        input >> user_input;
     }
-    return (update_action)(select-1);
+    return (update_action)(user_input-1);
 }
 
 //// Фунции обработки ввода пользователя
 
-std::vector<std::string> View::read_files(std::istream& input, std::ostream& output) {
+std::vector<std::string> ConsoleView::read_files(std::istream& input, std::ostream& output) {
     system_clear();
     std::string shift = set_center(output);
     output << shift + "Please write number of files:" << std::endl;
@@ -176,7 +176,7 @@ std::vector<std::string> View::read_files(std::istream& input, std::ostream& out
     return out;
 }
 
-std::string View::read_file(std::istream& input, std::ostream& output) {
+std::string ConsoleView::read_file(std::istream& input, std::ostream& output) {
     system_clear();
     std::string shift = set_center(output);
     Message message;
@@ -200,7 +200,7 @@ std::string View::read_file(std::istream& input, std::ostream& output) {
 
 
 //// Отбражение сообщений Presenter
-bool View::send_message(Message message, std::ostream& output) {
+bool ConsoleView::send_message(Message message, std::ostream& output) {
     system_clear();
     output << line;
     switch (message.type) {
@@ -219,7 +219,7 @@ bool View::send_message(Message message, std::ostream& output) {
     }
 }
 
-bool View::show_files(std::vector<std::string> files, std::ostream& output) {
+bool ConsoleView::show_files(std::vector<std::string> files, std::ostream& output) {
     int numeration = 1;
     if (files.empty()) {
         Message message;
@@ -248,7 +248,7 @@ bool check_int (std::string checking) {
 }
 
 
-size_t View::get_int(std::istream& input, std::ostream& output) {
+size_t ConsoleView::get_int(std::istream& input, std::ostream& output) {
     Message message;
     std::string shift = set_center(output);
     message.type = Message::error;
@@ -256,6 +256,7 @@ size_t View::get_int(std::istream& input, std::ostream& output) {
     std::string int_input;
     output << shift;
     input >> int_input;
+    // Сброс буффера в случае неверного ввода для следующего корректного ввода
     while (!check_int(int_input)) {
         send_message(message, output);
         input.clear(); // то возвращаем cin в 'обычный' режим работы
@@ -266,34 +267,34 @@ size_t View::get_int(std::istream& input, std::ostream& output) {
     return std::atoi(int_input.c_str());
 }
 
-View::View() {
+ConsoleView::ConsoleView() {
         presenter = std::make_shared<Presenter>(this);
         selection_error.type = Message::error;
         selection_error.message_text = "Wrong selection. Please try again";
 }
 
-View::View(bool set_term) : is_term(set_term) {
+ConsoleView::ConsoleView(bool set_term) : is_term(set_term) {
     ioctl(0, TIOCGWINSZ, &w);
     presenter = std::make_shared<Presenter>(this);
     selection_error.type = Message::error;
     selection_error.message_text = "Wrong selection. Please try again";
 }
 
-void View::system_clear() {
+void ConsoleView::system_clear() {
     if (is_term) {
         if (system("clear"))
             system("cls");
     }
 }
 
-void View::system_pause() {
+void ConsoleView::system_pause() {
     if (is_term) {
         if (system("read -n1 -r -p \"\" key"))
             system("pause");
     }
 }
 
-std::string View::set_center(std::ostream& output) {
+std::string ConsoleView::set_center(std::ostream& output) {
     std::string out = "";
     if (is_term) {
        for (size_t i = 0; i < w.ws_row/3; ++i) {

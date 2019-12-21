@@ -6,10 +6,9 @@
 #define ARCHIVER_REQUEST_H
 
 #include <iostream>
-#include <vector>
 #include <string>
 #include <unordered_map>
-
+#include <vector>
 struct Request {
     enum request_type {archive, dearchive, show};
     request_type type;

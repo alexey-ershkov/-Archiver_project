@@ -4,18 +4,25 @@ project(Archiver)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_C_FLAGS "-Wall -Werror -Wpedantic")
 
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules")
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(lib_headers/)
 
-set(ArchiveLib Presenter.cpp View.cpp Show.cpp Archive.cpp Dearchive.cpp)
+find_package(Qt5 COMPONENTS Core Quick Widgets REQUIRED)
+include_directories(${Qt5Widgets_INCLUDE_DIRS})
+
+set(ArchiveLib Presenter.cpp ConsoleView.cpp Show.cpp Archive.cpp Dearchive.cpp ArchiverQt/QtView.cpp ArchiverQt/QtView.h)
 
 add_library(ArchiverEngine STATIC ${ArchiveLib})
 
 add_executable(ArchiveConsole main.cpp)
-target_link_libraries(ArchiveConsole ArchiverEngine)
+target_link_libraries(ArchiveConsole  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets ArchiverEngine)
 
 
 add_executable(UnitTests GTest.cpp)

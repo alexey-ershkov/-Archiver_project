@@ -5,7 +5,7 @@
 #include <fstream>
 #include "gtest/gtest.h"
 #include "Presenter.h"
-#include "View.h"
+#include "ConsoleView.h"
 #include "Request.h"
 
 #define log_filename "ArchiverTestLog.txt"
@@ -135,14 +135,14 @@ class ViewUnitTests : public testing::Test{
 protected:
     void SetUp() override {
         log.open(log_filename, std::ios::app);
-        view = new View;
+        view = new ConsoleView;
     }
     void TearDown() override {
         delete view;
         log.close();
     }
     std::ofstream log;
-    View *view;
+    ConsoleView *view;
 };
 
 

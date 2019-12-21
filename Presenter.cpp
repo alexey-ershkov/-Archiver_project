@@ -10,18 +10,23 @@ void Presenter::send_request(Request request, std::ostream& output) {
     for (auto it : handlers) {
         if (it->can_handle(request)) {
             ModelResponse<> response =  it->handle(request);
+            Message message;
             if (response.state == ModelResponse<>::ok) {
-                Message message;
                 message.type = Message::ok;
                 message.message_text = response.info;
                 view_sender(message, output);
                 if (!response.data.empty())
                     view_sender(response.data, output);
-                return;
+            } else {
+                message.type = Message::error;
+                message.message_text = response.info;
+                view_sender(message, output);
+                if (!response.data.empty())
+                    view_sender(response.data, output);
             }
         }
     }
-    ////В случае нового вида возврата данных дописать здесь
+    ////В случае нового вида handlers (в данной реализации один вид) данных дописать здесь
     /// проход по вектору соответственных IHandle
     /// Request  - универсален и может обрабатыватьлся любым типом IHandle
 }

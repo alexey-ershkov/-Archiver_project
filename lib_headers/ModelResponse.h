@@ -5,6 +5,9 @@
 #ifndef ARCHIVER_MODELRESPONSE_H
 #define ARCHIVER_MODELRESPONSE_H
 
+#include <string>
+#include <vector>
+
 
 template <typename T = std::vector<std::string>>
 struct ModelResponse {

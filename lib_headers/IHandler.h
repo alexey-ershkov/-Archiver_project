@@ -5,8 +5,9 @@
 #ifndef ARCHIVER_IHANDLER_H
 #define ARCHIVER_IHANDLER_H
 
-#include "Request.h"
 #include "ModelResponse.h"
+#include "Request.h"
+
 
 
 template <typename T = std::vector<std::string>>
