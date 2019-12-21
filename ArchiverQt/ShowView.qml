@@ -70,7 +70,7 @@ Item {
         title: "Please choose a folder"
         folder: shortcuts.documents
         selectMultiple: false
-        selectFolder: true
+        selectFolder: false
         onAccepted: {
             console.log("file would be save at: " + fileUrls)
             showPath.clear()
