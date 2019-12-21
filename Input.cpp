@@ -48,9 +48,6 @@ bool Input::isFileEmpty(){
     (0 == count) ? true : false;
 }
 
-std::ifstream Input::GetFile() {
-    return std::move(fin);
-}
 
 std::string Input::GetFilePath(){
     return filepath;

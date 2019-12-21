@@ -21,7 +21,6 @@ private:
 public:
     std::string GetFilePath() override;
     std::ifstream fin;
-    std::ifstream GetFile() override;
     Input(const Input &input);
     Input(const std::string _filepath);
     ~Input();

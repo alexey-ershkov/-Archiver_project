@@ -66,6 +66,7 @@ TEST(LZWTest, TestCompressDataTxt1){
     ASSERT_EQ(true, alg_lzw.compressionRatio <= 1);
 }
 
+
 TEST(LZWTest, TestCompressDataPng9){
     LZW alg_lzw;
     Input input("../../files_for_compress/test9.png");

@@ -12,7 +12,6 @@ class IInputStream {
 public:
     virtual size_t GetFileSize() = 0;
     virtual bool Read(byte& value) = 0;
-    virtual std::ifstream GetFile() = 0;
     virtual std::string GetFilePath() = 0;
 };
 

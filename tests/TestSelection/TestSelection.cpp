@@ -71,12 +71,12 @@ TEST(SelectionTest, TestCompressAndDecompresssDataTxt1) {
 
 
 
-//TEST(SelectorTest, TestCompressDataTxt1){
-//    string type_file = "txt";
-//    Selection selector(type_file);
-//    selector.Compress("../../files_for_compress/test1.txt", "../../compressed_files/test1.bin");
-//    ASSERT_EQ(true, selector.compressionRatio <= 1);
-//}
+TEST(SelectorTest, TestCompressDataTxt1){
+    string type_file = "txt";
+    Selection selector(type_file);
+    selector.Compress("../../files_for_compress/test1.txt", "../../compressed_files/test1.bin");
+    ASSERT_EQ(true, selector.compressionRatio <= 1);
+}
 TEST(SelectorTest, TestCompressDataTxt2){
     string type_file = "txt";
     Selection selector(type_file);
@@ -111,19 +111,7 @@ TEST(SelectorTest, TestCompressDataJpg6){
     ASSERT_EQ(true, selector.compressionRatio <= 1);
 }
 
-//TEST(SelectorTest, TestCompressDataPdf7){
-//    string type_file = "pdf";
-//    Selection selector(type_file);
-//    selector.Compress("../../files_for_compress/test7.pdf", "../../compressed_files/test7.bin");
-//    ASSERT_EQ(true, selector.GetCompressionRatio() <= 1);
-//}
-//
-//TEST(SelectorTest, TestCompressDataPdf8){
-//    string type_file = "pdf";
-//    Selection selector(type_file);
-//    selector.Compress("../../files_for_compress/test8.pdf", "../../compressed_files/test8.bin");
-//    ASSERT_EQ(true, selector.GetCompressionRatio() <= 1);
-//}
+
 
 TEST(SelectorTest, TestCompressDataPng9){
     string type_file = "png";
@@ -139,14 +127,6 @@ TEST(SelectorTest, TestCompressDataZip10){
     ASSERT_EQ(true, selector.compressionRatio <= 1);
 }
 
-//TEST(SelectorTest, TestDecompressDataTxt1){
-//    string type_file = "txt";
-//    Selection selector(type_file);
-//    selector.Decompress("../../compressed_files/test1.bin", "../../decompressed_files/test1.txt");
-//    bool result = IsFilesEqual("../../files_for_compress/test1.txt", "../../decompressed_files/test1.txt");
-//    ASSERT_EQ(true, result);
-//
-//}
 
 
 

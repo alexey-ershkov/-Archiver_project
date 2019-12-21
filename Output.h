@@ -14,11 +14,9 @@ typedef unsigned char byte;
 class Output : public  IOutputStream {
 private:
     std::string filepath;
-
     size_t size = 0;
 public:
     std::ofstream fout;
-    std::ofstream GetFile() override;
     std::string GetFilePath() override;
     void RemoveFile();
     Output(std::string _filepath);
