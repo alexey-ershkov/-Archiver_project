@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Input.h"
 
-Input::Input(const std::string filepath ) : count(0) {
+Input::Input(const std::string& filepath ) : count(0) {
     fin.open(filepath,std::ios::binary);
     if (!fin.is_open()) {
         std::cout << "file " << filepath << " cant be open" << std::endl;
@@ -19,7 +19,7 @@ size_t Input::GetFileSize() {
     return count;
 }
 void Input::RemoveFile() {
-    const char *filep = filepath.c_str();
+    const char *filep = filepath_alter.c_str();
     std::remove(filep);
 }
 

@@ -11,8 +11,9 @@ add_executable(Archiver
         Output.cpp   Input.cpp
         Output.h     Input.h
         IOutputStream.h
-        IInputStream.h  ArchiveFile.hpp
-        IGetFileSize.h  ArchiveFile.cpp
+        IInputStream.h ArchiveFileWriter.hpp
+        IGetFileSize.h ArchiveFileWriter.cpp
+        ArchiveFileReader.hpp ArchiveFileReader.cpp
 
         main.cpp
 

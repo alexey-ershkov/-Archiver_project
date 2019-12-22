@@ -13,9 +13,14 @@ int main(int argc, char** argv){
   input_data.insert(std::pair(std::string("Пикча.???"), std::string("4LsNWkt2NLY.jpg")));
   //input_data.insert(std::pair(std::string("OOP.docx"), std::string("OOP_-_Final.docx")));
 
+  Archiver a("archive");
 
-  Archiver a{};
-  a.Pack(input_data, "archive");
+  a.Pack(input_data, "./", "archive");
 
+  auto FS = a.Read();
+  a.Unpack ();
+ // std::printf("\n");
   return 0;
 }
+
+//std::invalid_argument

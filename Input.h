@@ -14,11 +14,11 @@ typedef unsigned char byte;
 
 class Input : public IInputStream, IGetFileSize {
 private:
-    std::string filepath;
+    std::string filepath_alter;
     std::ifstream fin;
     size_t count;
 public:
-    Input(const std::string filepath);
+    Input(const std::string& filepath);
     ~Input();
     void RemoveFile();
     size_t GetFileSize();

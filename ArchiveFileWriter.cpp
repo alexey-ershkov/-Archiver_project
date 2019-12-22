@@ -2,11 +2,11 @@
 // Created by perturabo on 07.12.2019.
 //
 
-#include "ArchiveFile.hpp"
+#include "ArchiveFileWriter.hpp"
 
 #include <utility>
 
-size_t ArchiveFile::GetInputFileSize (Input *in){
+size_t ArchiveFileWriter::GetInputFileSize (Input *in){
   size_t size_a = 0;
   byte stub;
 
@@ -16,7 +16,7 @@ size_t ArchiveFile::GetInputFileSize (Input *in){
   return size_a;
 }
 
-void ArchiveFile::WriteString(const std::string& s) {
+void ArchiveFileWriter::WriteString(const std::string& s) {
   for(auto& ch : s){
       Write(ch);
       content_start+=1;
@@ -25,7 +25,7 @@ void ArchiveFile::WriteString(const std::string& s) {
   content_start++;
 }
 
-size_t ArchiveFile::GetPointer(const std::string& in){
+size_t ArchiveFileWriter::GetPointer(const std::string& in){
   size_t x;
   std::stringstream ss;
   ss << std::hex << in;
@@ -33,7 +33,7 @@ size_t ArchiveFile::GetPointer(const std::string& in){
   return x;
 }
 
-std::string ArchiveFile::makeString(const std::string& in){
+std::string ArchiveFileWriter::makeString(const std::string& in){
   unsigned int diff  = 16 - in.length();
   std::string out;
   for(int i = 0; i < diff; i++){
@@ -44,7 +44,7 @@ std::string ArchiveFile::makeString(const std::string& in){
   return out;
 }
 
-void ArchiveFile::WritePointer(unsigned int input_string){
+void ArchiveFileWriter::WritePointer(unsigned int input_string){
   std::stringstream field;
   std::string hex_string;
   field << std::hex << input_string;
@@ -53,7 +53,7 @@ void ArchiveFile::WritePointer(unsigned int input_string){
   WriteString(hex_string);
 }
 
-void ArchiveFile::WriteSignature () {
+void ArchiveFileWriter::WriteSignature () {
   Write (0x74); // TPRK archive file signature (tprk)
   Write (0x70);
   Write (0x72);
@@ -62,24 +62,24 @@ void ArchiveFile::WriteSignature () {
   content_start+=5;
 }
 
-void ArchiveFile::WriteEndOfES(){
+void ArchiveFileWriter::WriteEndOfES(){
   content_start += 17; // there are some trouble in math, fixed with this constant
   WritePointer (content_start);
 }
 
-void ArchiveFile::WriteEntrySeparator(){
+void ArchiveFileWriter::WriteEntrySeparator(){
   Write(0x0F);  // (0F) separates entries from each other in compiled archive
   content_start++;
 }
 
-void ArchiveFile::WriteFile(const std::string& path){
+void ArchiveFileWriter::WriteFile(const std::string& path){
   Input bin(path);
   byte b;
   while (bin.Read (b))
     Write (b);
 }
 
-unsigned long int ArchiveFile::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
+unsigned long int ArchiveFileWriter::CreateEntrySystem (const std::map<std::string, std::string>& compressed_data){
   size_t relative_pointer = 0;
   unsigned long int entry_system_length = compressed_data.size();
   WritePointer (entry_system_length);
@@ -112,28 +112,20 @@ unsigned long int ArchiveFile::CreateEntrySystem (const std::map<std::string, st
 }
 
 
-ArchiveFile::ArchiveFile (std::string path, char mode) :Output (path), filepath (std::move(path)), Input(path){
-  if(mode=='w'){
-    OpenOutput();
+ArchiveFileWriter::ArchiveFileWriter
+(const std::string& path_to_archive): filepath(path_to_archive), Output (path_to_archive){
+    OpenOutput ();
     content_start = 0;
-    WriteSignature();
-
-  }
-  if(mode=='r'){
-      OpenInput ();
-      SkipSignature();
-    }
+    WriteSignature ();
 }
 
-void ArchiveFile::CloseOutput(){
+
+void ArchiveFileWriter::CloseOutput(){
   fout.close();
 }
 
-void ArchiveFile::CloseInput (){
-  fin.close();
-}
 
-void ArchiveFile::OpenOutput(){
+void ArchiveFileWriter::OpenOutput(){
   fout.open (filepath);
   if (!fout.is_open ()){
       std::cout << "can't open or create file" << filepath << std::endl;
@@ -141,37 +133,3 @@ void ArchiveFile::OpenOutput(){
     }
 }
 
-void ArchiveFile::OpenInput(){
-  fin.open(filepath,std::ios::binary);
-  if (!fin.is_open()) {
-      std::cout << "file " << filepath << " cant be open" << std::endl;
-      fin.close();
-    }
-}
-std::string ArchiveFile::GetLine (){
-  std::string out;
-  unsigned char ch;
-
-  while(Read(ch)&&(ch!='\0')){
-    out.push_back(ch);
-  }
-
-  return out;
-}
-
-bool ArchiveFile::GetEntry(Entry &entry) {
-  entry.start = GetPointer (GetLine ());
-  entry.end = GetPointer (GetLine ());
-  entry.name = GetLine ();
-  entry.type = GetLine ();
-  unsigned char test;
-
-  return Read (test) && test == 0x0F;
-}
-
-void ArchiveFile::SkipSignature (){
-  byte stub;
-  for(byte i = 0; i < 5; i++){ // 5 is length of tprk signature
-    Read(stub);
-  }
-}
