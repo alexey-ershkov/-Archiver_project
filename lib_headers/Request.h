@@ -15,6 +15,7 @@ struct Request {
     std::vector<std::string> filenames;
     std::unordered_multimap <std::string, std::string> types;
     std::string archive_name;
+    std::string archive_path;
 };
 
 typedef struct Request Request;

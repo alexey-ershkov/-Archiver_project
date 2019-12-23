@@ -49,7 +49,7 @@ update_action ConsoleView::show_screen(std::istream& input, std::ostream& output
         else {
             Request request;
             request.type = Request::show;
-            request.archive_name = archive_file;
+            request.archive_path = archive_file;
             system_clear();
             presenter->send_request(request,output);
         }
@@ -78,10 +78,17 @@ update_action ConsoleView::archive_screen(std::istream& input, std::ostream& out
         std::vector<std::string> files = read_files(input, output);
         if (files [0] == "exit")
             return update_action::DEFAULT;
+        output << "Input where to save archive:" << std::endl;
+        std::string path = read_file(input,output);
+        output << "Input archive filename:" << std::endl;
+        std::string filename;
+        input >> filename;
         ////Заполнение запроса
         Request request;
         request.type = Request::archive;
         request.filenames = files;
+        request.archive_name = filename;
+        request.archive_path = path;
         presenter->send_request(request, output);
         system_pause();
     }

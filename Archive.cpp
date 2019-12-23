@@ -3,16 +3,21 @@
 //
 
 
+
 #include "Archive.h"
 
 ModelResponse<> Archive::handle(Request request) {
     ModelResponse<> response;
     response.module = ModelResponse<>::archive;
     try {
+        std::map <std::string, std::string> files_to_archive;
         for (auto it : request.filenames) {
-            Selection selection("text");
+            Selection selection(TypeIdentifier::SignatureDetect(it));
             selection.Compress(it, new_name(it));
+            files_to_archive.insert(std::make_pair(it, new_name(it)));
         }
+        Archiver archiver(request.archive_path);
+        archiver.Pack(files_to_archive, request.archive_path, request.archive_name);
     }
     catch (std::invalid_argument& exept) {
         response.state = ModelResponse<>::error;

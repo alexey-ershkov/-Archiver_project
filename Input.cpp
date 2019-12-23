@@ -56,3 +56,6 @@ bool Input::isFileEmpty(){
 std::string Input::GetFilePath(){
     return filepath;
 }
+size_t Input::GetCount() const {
+    return count;
+}

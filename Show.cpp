@@ -2,15 +2,20 @@
 // Created by Алексей on 2019-11-17.
 //
 
+
 #include "Show.h"
 
 ModelResponse<> Show::handle(Request request) {
     ModelResponse<> response;
     response.module = ModelResponse<>::show;
-    //Заглушка для списка файлов
-    std::vector<std::string> fake_filenames = {"File1", "File2", "File3", "File4", "File5"};
+    std::vector<std::string> filenames;
     try {
-        ////Вызов функции показа файлов
+        Archiver archiver(request.archive_path
+        );
+        auto files = archiver.Read();
+        for (auto file : files) {
+            filenames.emplace_back(file.name);
+        }
     }
     catch (std::invalid_argument& exept) {
         response.state = ModelResponse<>::error;
@@ -25,7 +30,7 @@ ModelResponse<> Show::handle(Request request) {
 
     response.state  = ModelResponse<>::ok;
     response.info = "File(s) successfully showed";
-    response.data = fake_filenames;
+    response.data = filenames;
     return response;
 }
 

@@ -5,11 +5,12 @@
 #ifndef ARCHIVER_ARCHIVE_H
 #define ARCHIVER_ARCHIVE_H
 
-
+#include <Archiver.hpp>
 #include "IHandler.h"
+#include <map>
 #include "Selection.h"
 #include <stdexcept>
-
+#include <TypeIdentifier.hpp>
 
 class Archive : public IHandler<> {
 public:

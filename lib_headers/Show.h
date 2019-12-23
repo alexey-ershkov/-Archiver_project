@@ -5,7 +5,7 @@
 #ifndef ARCHIVER_SHOW_H
 #define ARCHIVER_SHOW_H
 
-
+#include <Archiver.hpp>
 #include "IHandler.h"
 #include <stdexcept>
 
