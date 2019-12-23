@@ -7,6 +7,7 @@
 
 
 #include "IHandler.h"
+#include "Selection.h"
 #include <stdexcept>
 
 

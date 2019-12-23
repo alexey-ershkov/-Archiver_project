@@ -2,13 +2,13 @@
 // Created by Алексей on 2019-11-17.
 //
 
+
 #include "Dearchive.h"
 ModelResponse<> Dearchive::handle(Request request) {
     ModelResponse<> response;
     response.module = ModelResponse<>::dearchive;
     try {
-        ////Вызов алгоритмов деархивации
-        /// и расжатия
+
     }
     catch (std::invalid_argument& exept) {
         response.state = ModelResponse<>::error;

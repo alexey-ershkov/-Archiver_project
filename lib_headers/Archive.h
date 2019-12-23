@@ -7,6 +7,7 @@
 
 
 #include "IHandler.h"
+#include "Selection.h"
 #include <stdexcept>
 
 
@@ -14,6 +15,7 @@ class Archive : public IHandler<> {
 public:
     ModelResponse<> handle(Request) override;
     bool can_handle(Request) override;
+    std::string new_name (std::string &);
 };
 
 
