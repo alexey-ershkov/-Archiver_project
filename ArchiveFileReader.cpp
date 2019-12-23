@@ -3,8 +3,20 @@
 //
 
 #include "ArchiveFileReader.hpp"
-
 #include <utility>
+
+
+ArchiveFileReader::ArchiveFileReader (std::string path_to_archive)
+    : Input (path_to_archive), filepath (std::move(path_to_archive)){
+  SkipSignature ();
+}
+
+ArchiveFileReader::ArchiveFileReader(const std::string &filepath,
+                                     std::string path_to_archive,
+                                     size_t start) : Input(filepath) {
+  content_start = start;
+  SkipSignature();
+}
 
 void ArchiveFileReader::OpenInput(){
   fin.open(filepath,std::ios::binary);
@@ -52,8 +64,12 @@ size_t ArchiveFileReader::GetPointer(const std::string& in){
   ss >> x;
   return x;
 }
-ArchiveFileReader::ArchiveFileReader (std::string path_to_archive)
-    : Input (path_to_archive), filepath (std::move(path_to_archive)){
-  SkipSignature ();
+
+
+void ArchiveFileReader::SkipTo(size_t start_pointer) {
+  byte stub;
+  while(GetCount() < start_pointer){
+    Read(stub);
+  }
 }
 

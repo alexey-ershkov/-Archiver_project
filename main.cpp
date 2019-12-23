@@ -18,7 +18,7 @@ int main(int argc, char** argv){
   a.Pack(input_data, "./", "archive");
 
   auto FS = a.Read();
-  a.Unpack ();
+  a.Unpack (FS);
  // std::printf("\n");
   return 0;
 }

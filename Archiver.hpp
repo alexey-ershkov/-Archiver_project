@@ -24,6 +24,7 @@ class Archiver{
   std::string Pack(const std::map<std::string, std::string>& compressed_data, std::string path,  const std::string& name);
   std::map<std::string, std::string> Unpack (const std::vector<Entry>& EntrySystem);
   static std::pair<std::string, std::string> UnpackSingle(const std::vector<Entry>& EntrySystem, std::string name);
+  std::string CutABinary(Entry &entry, unsigned long int name_binary);
 };
 
 #endif //_ARCHIVER_HPP_

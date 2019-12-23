@@ -19,7 +19,7 @@ size_t Input::GetFileSize() {
     return count;
 }
 void Input::RemoveFile() {
-    const char *filep = filepath_alter.c_str();
+    const char *filep = filepath.c_str();
     std::remove(filep);
 }
 
@@ -33,6 +33,9 @@ bool Input::Read(byte& value) {
     } else {
         return false;
     }
+}
+size_t Input::GetCount() const {
+  return count;
 }
 
 

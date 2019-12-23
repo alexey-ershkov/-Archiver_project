@@ -48,13 +48,14 @@ std::vector<Entry> Archiver::Read (){
 
 std::map<std::string, std::string> // name, bin_name
 Archiver::Unpack (const std::vector<Entry>& EntrySystem){
-  ArchiveFileWriter archive (path_to_archive);
   std::map<std::string, std::string> out;
   unsigned long int i = 0;
 
   for(auto entry: EntrySystem){
-    entry.bin_name = std::print("%Ld.bin", i);
-
+    CutABinary(entry, i);
+    std::pair<std::string, std::string> p(entry.name, entry.bin_name);
+    out.insert(p);
+    i++;
   }
 
   return out;
@@ -64,4 +65,21 @@ Archiver::Unpack (const std::vector<Entry>& EntrySystem){
 std::pair<std::string, std::string> // name, bin_name
 Archiver::UnpackSingle (const std::vector<Entry> &EntrySystem, std::string name){
   return std::pair<std::string, std::string> ();
+}
+std::string Archiver::CutABinary(Entry& entry, unsigned long int name_binary){
+  ArchiveFileReader archive (path_to_archive);
+  archive.SkipTo(content_start + entry.start - name_binary);
+
+  char buf[100];
+  std::snprintf(buf, sizeof(buf), "%lu.bin", name_binary);
+  Output out(buf);
+  size_t length = entry.end - entry.start;
+  byte buff;
+  for(unsigned long int i = 0; i < length; i++){
+    archive.Read(buff);
+    out.Write(buff);
+  }
+
+
+  return buf;
 }

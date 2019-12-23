@@ -14,7 +14,7 @@ typedef unsigned char byte;
 
 class Input : public IInputStream, IGetFileSize {
 private:
-    std::string filepath_alter;
+    std::string filepath;
     std::ifstream fin;
     size_t count;
 public:
@@ -23,7 +23,7 @@ public:
     void RemoveFile();
     size_t GetFileSize();
     bool Read(byte& value);
-
+    size_t GetCount() const;
 
 };
 
