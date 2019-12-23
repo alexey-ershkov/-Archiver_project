@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <Selection.h>
+#include "../../Selection.h"
 #include <iostream>
 
 using namespace std;
