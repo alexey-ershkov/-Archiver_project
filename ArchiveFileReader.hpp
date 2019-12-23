@@ -17,13 +17,9 @@ class ArchiveFileReader: public Input {
 
  public:
   explicit ArchiveFileReader (std::string path_to_archive);
-  ArchiveFileReader(const std::string &filepath,
-                    std::string path_to_archive,
-                    size_t start);
-
   void CloseInput ();
   void OpenInput ();
-  void SkipSignature (); //todo replace with CheckSignature
+  void CheckSignature (); //todo replace with CheckSignature
   static size_t GetPointer (const std::string &in);
   bool GetEntry (Entry &entry);
   std::string GetLine ();

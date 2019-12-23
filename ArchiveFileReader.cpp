@@ -8,14 +8,7 @@
 
 ArchiveFileReader::ArchiveFileReader (std::string path_to_archive)
     : Input (path_to_archive), filepath (std::move(path_to_archive)){
-  SkipSignature ();
-}
-
-ArchiveFileReader::ArchiveFileReader(const std::string &filepath,
-                                     std::string path_to_archive,
-                                     size_t start) : Input(filepath) {
-  content_start = start;
-  SkipSignature();
+  CheckSignature();
 }
 
 void ArchiveFileReader::OpenInput(){
@@ -50,11 +43,15 @@ bool ArchiveFileReader::GetEntry(Entry &entry) {
   return Read (test) && test == 0x0F;
 }
 
-void ArchiveFileReader::SkipSignature (){
-  byte stub;
+void ArchiveFileReader::CheckSignature (){
+  unsigned char stub;
+  std::string out;
   for(byte i = 0; i < 5; i++){ // 5 is length of tprk signature
       Read(stub);
-    }
+      out.push_back(stub);
+    };
+  if(out[4] != '\016' || out.substr(0, 3) == "tprk")
+    throw std::invalid_argument("Invalid TPRK archive");
 }
 
 size_t ArchiveFileReader::GetPointer(const std::string& in){

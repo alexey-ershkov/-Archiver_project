@@ -13,9 +13,7 @@ int main(int argc, char** argv){
   input_data.insert(std::pair(std::string("Пикча.???"), std::string("4LsNWkt2NLY.jpg")));
   //input_data.insert(std::pair(std::string("OOP.docx"), std::string("OOP_-_Final.docx")));
 
-  Archiver a("archive");
-
-  a.Pack(input_data, "./", "archive");
+  Archiver a("фффф");
 
   auto FS = a.Read();
   a.Unpack (FS);
