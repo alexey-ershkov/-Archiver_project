@@ -28,8 +28,8 @@ find_package(Qt5 COMPONENTS Core Quick Widgets REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
 set(ArchiveLib Presenter.cpp ConsoleView.cpp Show.cpp Archive.cpp Dearchive.cpp ArchiverQt/QtView.cpp ArchiverQt/QtView.h)
-target_link_libraries(ArchiverEngine ${})
 add_library(ArchiverEngine STATIC ${ArchiveLib})
+target_link_libraries(ArchiverEngine ${LIBMAGIC_LIBRARIES})
 
 add_executable(ArchiveConsole main.cpp)
 target_link_libraries(ArchiveConsole  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets ArchiverEngine)
