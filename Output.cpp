@@ -4,12 +4,15 @@
 #include <fstream>
 #include "IOutputStream.h"
 
+
+
 void Output::RemoveFile() {
     const char *filep = filepath.c_str();
     std::remove(filep);
 }
 
-Output::Output(std::string _filepath) : filepath(_filepath) {
+
+Output::Output(std::string _filepath) : filepath(std::move(_filepath)) {
     fout.open(filepath, std::ios::binary);
     if (!fout.is_open()) {
         std::cout << "can't open or create file" << filepath << std::endl;
@@ -40,12 +43,16 @@ size_t Output::GetFileSize() {
     return size_file;
 }
 
+
+
 Output::~Output() {
     fout.close();
 }
 
 
+
 std::string Output::GetFilePath(){
     return filepath;
 }
+
 

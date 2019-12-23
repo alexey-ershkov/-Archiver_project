@@ -29,6 +29,7 @@ public:
     void RemoveFile();
     size_t GetFileSize() override ;
     bool Read(byte& value);
+    size_t GetCount() const;
 
 
 };

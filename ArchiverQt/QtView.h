@@ -8,7 +8,7 @@
 #include <QObject>
 #include <QString>
 #include <QStringList>
-#include "../View.h"
+#include "View.h"
 
 class QtView : public View, QObject {
      bool send_message (Message message, std::ostream&);

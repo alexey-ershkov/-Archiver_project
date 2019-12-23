@@ -28,7 +28,8 @@ find_package(Qt5 COMPONENTS Core Quick Widgets REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
 set(ArchiveLib Presenter.cpp ConsoleView.cpp Show.cpp Archive.cpp Dearchive.cpp Algorithm.cpp CodeWriter.cpp
-        CodeReader.cpp EncoderDictionary.cpp Huffman.cpp Input.cpp LZW.cpp Output.cpp Selection.cpp)
+        CodeReader.cpp EncoderDictionary.cpp Huffman.cpp Input.cpp LZW.cpp Output.cpp Selection.cpp
+        ArchiveFileWriter.cpp ArchiveFileReader.cpp lib_headers/IGetFileSize.h buff.cpp Archiver.cpp TypeIdentifier.cpp)
 add_library(ArchiverEngine STATIC ${ArchiveLib})
 target_link_libraries(ArchiverEngine PRIVATE ${LIBMAGIC_LIBRARIES})
 
@@ -39,6 +40,7 @@ target_link_libraries(ArchiveConsole  PRIVATE Qt5::Core Qt5::Quick Qt5::Widgets 
 add_executable(UnitTests GTest.cpp)
 target_link_libraries(UnitTests ${GTEST_LIBRARIES} pthread)
 target_link_libraries(UnitTests ArchiverEngine)
+
 
 
 

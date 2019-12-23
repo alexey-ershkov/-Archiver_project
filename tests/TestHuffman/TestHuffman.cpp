@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../../Huffman.h"
+#include "Huffman.h"
 #include <iostream>
 
 using namespace std;
