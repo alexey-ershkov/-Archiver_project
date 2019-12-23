@@ -8,7 +8,17 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules")
+set(magic_DIR /usr/local/Cellar/libmagic/5.37)
+
+
+include(FindPackageHandleStandardArgs)
+
+include_directories(${MAGIC_INCLUDE_DIR})
+
+
+find_package (LibMagic REQUIRED)
 
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
@@ -18,7 +28,7 @@ find_package(Qt5 COMPONENTS Core Quick Widgets REQUIRED)
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
 set(ArchiveLib Presenter.cpp ConsoleView.cpp Show.cpp Archive.cpp Dearchive.cpp ArchiverQt/QtView.cpp ArchiverQt/QtView.h)
-
+target_link_libraries(ArchiverEngine ${})
 add_library(ArchiverEngine STATIC ${ArchiveLib})
 
 add_executable(ArchiveConsole main.cpp)
