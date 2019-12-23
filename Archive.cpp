@@ -13,10 +13,7 @@ ModelResponse<> Archive::handle(Request request) {
         for (auto it : request.filenames){
             Selection selection(TypeIdentifier::SignatureDetect(it));
             selection.Compress(it, new_name(it));
-            files_to_archive.insert(std::make_pair(it, new_name(it)));
         }
-        Archiver archiver;
-        archiver.Pack(files_to_archive, "../media", "test_archive");
         ////Вызов алгоритмов на проверку типа данных
         /// Сжатия
         /// И Архивации
