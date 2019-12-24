@@ -118,7 +118,7 @@ update_action ConsoleView::dearchive_screen(std::istream& input, std::ostream& o
         else {
             Request request;
             request.type = Request::dearchive;
-            request.archive_name = archive_file;
+            request.archive_path = archive_file;
             presenter->send_request(request, output);
         }
         system_pause();

@@ -5,7 +5,7 @@
 #ifndef ARCHIVER_DEARCHIVE_H
 #define ARCHIVER_DEARCHIVE_H
 
-
+#include <Archiver.hpp>
 #include "IHandler.h"
 #include "Selection.h"
 #include <stdexcept>

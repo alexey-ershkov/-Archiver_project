@@ -96,7 +96,7 @@ unsigned long int ArchiveFileWriter::CreateEntrySystem (const std::map<std::stri
       relative_pointer += GetInputFileSize(&bin);
       entry.end = relative_pointer++;
     }
-    entry.type = TypeIdentifier::SignatureDetect (item.second);
+    entry.type = TypeIdentifier::SignatureDetect (item.first);
 
     WritePointer(entry.start);
     WritePointer(entry.end );
