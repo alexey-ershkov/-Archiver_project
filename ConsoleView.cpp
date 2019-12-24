@@ -116,9 +116,12 @@ update_action ConsoleView::dearchive_screen(std::istream& input, std::ostream& o
         if (archive_file == "exit")
             return update_action::DEFAULT;
         else {
+            output << "Input directory where files must be saved:" << std::endl;
+            std::string dir = read_file(input, output);
             Request request;
             request.type = Request::dearchive;
             request.archive_path = archive_file;
+            request.dearchive_path = dir;
             presenter->send_request(request, output);
         }
         system_pause();

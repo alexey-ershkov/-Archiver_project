@@ -12,9 +12,12 @@ ModelResponse<> Dearchive::handle(Request request) {
         Archiver archiver(request.archive_path);
         auto files = archiver.Read();
         archiver.Unpack(files);
-        std::cout << files[0].type << std::endl;
-        Selection selection("text");
-        selection.Decompress("0.bin", "Input.h");
+        int i = 0;
+        for (auto file : files) {
+            Selection selection(file.type);
+            selection.Decompress(std::to_string(i) + ".bin", request.dearchive_path + "/" + file.name);
+            ++i;
+        }
     }
     catch (std::invalid_argument& exept) {
         response.state = ModelResponse<>::error;

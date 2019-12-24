@@ -16,6 +16,7 @@ struct Request {
     std::unordered_multimap <std::string, std::string> types;
     std::string archive_name;
     std::string archive_path;
+    std::string dearchive_path;
 };
 
 typedef struct Request Request;

@@ -1,3 +1,4 @@
+#include <Selection.h>
 #include "ConsoleView.h"
 
 
@@ -16,6 +17,12 @@ int main(int argc, char** argv) {
     view->system_clear();
     return 0;
 }
+
+//int main () {
+//    Selection selection("image");
+//    selection.Decompress("1.bin","../awesome_tests/UML.png");
+//    return 0;
+//}
 
 
 
