@@ -21,6 +21,7 @@ std::string Archiver::Pack (const std::map<std::string, std::string>& compressed
 
   for(auto& entry : EntrySystem){
     archive.WriteFile (entry.bin_name);
+    CleanUpSingle(entry.bin_name);
   }
 
   archive.CloseOutput ();
@@ -59,7 +60,7 @@ Archiver::Unpack (const std::vector<Entry>& EntrySystem){
 }
 
 std::pair<std::string, std::string> // name, bin_name
-Archiver::UnpackSingle (Entry entry, std::string name){
+Archiver::UnpackSingle (Entry entry, const std::string& name){
     CutABinary(entry, 0);
     std::pair<std::string, std::string> p(entry.name, entry.bin_name);
     return p;
@@ -81,4 +82,14 @@ std::string Archiver::CutABinary(Entry& entry, unsigned long int name_binary){
   }
 
   return buf;
+}
+
+void Archiver::CleanUp(const std::vector<std::string>& binaries) {
+  for(const auto& item: binaries){
+   CleanUpSingle(item);
+  }
+}
+void Archiver::CleanUpSingle(const std::string& binary) {
+  Input file(binary);
+  file.RemoveFile();
 }

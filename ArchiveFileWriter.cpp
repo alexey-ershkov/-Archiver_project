@@ -85,21 +85,21 @@ unsigned long int ArchiveFileWriter::CreateEntrySystem (const std::map<std::stri
   WritePointer (entry_system_length);
 
 
+  std::stringstream buff_stream;
+  std::string iter;
+
+  for (auto &item : compressed_data){
 
 
-  for (auto &item : compressed_data) {
-      std::stringstream buff_stream;
-      std::vector<std::string> buff_vect;
-      std::string iter;
     buff_stream<<item.first;
-    while(std::getline(buff_stream, iter, '/')){
-    buff_vect.push_back(iter);
-    }
+    while(std::getline(buff_stream, iter, '/'));
 
     Entry entry;
 
     entry.name = iter;
+
     entry.bin_name = item.second;
+
     {
       Input bin(item.second);
       entry.start = relative_pointer;

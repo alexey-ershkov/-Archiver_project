@@ -15,9 +15,12 @@ ModelResponse<> Dearchive::handle(Request request) {
         int i = 0;
         for (auto file : files) {
             Selection selection(file.type);
-            selection.Decompress(std::to_string(i) + ".bin", request.dearchive_path + "/" + file.name);
+            auto bin_name = std::to_string(i) + ".bin";
+            selection.Decompress(bin_name, request.dearchive_path + "/" + file.name);
+            archiver.CleanUpSingle(std::to_string(i) + ".bin");
             ++i;
         }
+
     }
     catch (std::invalid_argument& exept) {
         response.state = ModelResponse<>::error;
