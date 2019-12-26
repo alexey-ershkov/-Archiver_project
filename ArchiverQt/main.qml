@@ -6,7 +6,6 @@ import com.ics.demo 1.0
 
 
 
-
 ApplicationWindow {
     id: applicationWindow
     visible: true
@@ -29,7 +28,6 @@ ApplicationWindow {
     QtView {
         id:core
     }
-
 
 
     Loader{

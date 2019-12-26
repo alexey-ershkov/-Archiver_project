@@ -28,7 +28,6 @@ private:
 
 public slots:
    //void sendFilenames();
-
 signals:
     void filenamesChanged();
 };
