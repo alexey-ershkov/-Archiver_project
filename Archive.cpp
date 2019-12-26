@@ -18,6 +18,10 @@ ModelResponse<> Archive::handle(Request request) {
         }
         Archiver archiver(request.archive_path);
         archiver.Pack(files_to_archive, request.archive_path, request.archive_name);
+        for (auto it : request.filenames) {
+            Input input(new_name(it));
+            input.RemoveFile();
+        }
     }
     catch (std::invalid_argument& exept) {
         response.state = ModelResponse<>::error;
