@@ -4,14 +4,14 @@
 #include "Algorithm.h"
 #include "Huffman.h"
 #include "LZW.h"
-
+#include <fstream>
 
 
 
 class Selection {
 public:
     Selection(std::string _typeFile, std::vector<std::shared_ptr<Algorithm>> added_algos = {std::shared_ptr<Algorithm>(new Huffman)});
-    ~Selection() = default;
+    ~Selection();
     double Compress(std::string input_filepath, std::string output_filepath);
     void Decompress(std::string input_filepath, std::string output_filepath);
     std::string GetTypeFile();
@@ -19,6 +19,7 @@ public:
     std::string GetNameAlgorithm();
 
 private:
+    std::ofstream fout;
     bool isActive;
     std::string name;
     std::shared_ptr<Algorithm> algo;

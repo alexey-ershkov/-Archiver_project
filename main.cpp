@@ -5,6 +5,10 @@
 
 int main(int argc, char** argv) {
     ConsoleView *view;
+    std::ofstream fout;
+    fout.open("selection.log");
+    fout.clear();
+    fout.close();
     if (argc > 1){
         view = new ConsoleView(true);
     } else {
