@@ -77,6 +77,7 @@ Rectangle{
                     color: isCurrent ? "white" : Material.accent
                     renderType: Text.NativeRendering
                     text: model.text.replace(new RegExp("file:\/\/\/([A-Za-z0-9\-_~ ]+\/)+"),"")
+
                 }
 
                 MouseArea {

@@ -77,6 +77,8 @@ Item {
                 for (var i = 0; i < fileUrls.length; ++i) {
                     console.log (fileUrls[i])
                     fileModel.append({text: fileUrls[i]})
+                    core.filenames = fileUrl.toString();
+                    console.log(core.filenames)
                 }
 
                 //TODO модель на с++ и отправка файлов в модель

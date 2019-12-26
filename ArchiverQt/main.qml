@@ -2,6 +2,7 @@ import QtQuick 2.5
 import QtQuick.Window 2.5
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
+import com.ics.demo 1.0
 
 
 
@@ -25,6 +26,9 @@ ApplicationWindow {
     }
 
 
+    QtView {
+        id:core
+    }
 
 
 
