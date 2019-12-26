@@ -19,6 +19,7 @@ public:
     std::string GetNameAlgorithm();
 
 private:
+    std::ofstream fout;
     bool isActive;
     std::string name;
     std::shared_ptr<Algorithm> algo;
