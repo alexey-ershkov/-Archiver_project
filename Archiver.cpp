@@ -21,10 +21,12 @@ std::string Archiver::Pack (const std::map<std::string, std::string>& compressed
 
   for(auto& entry : EntrySystem){
     archive.WriteFile (entry.bin_name);
-    CleanUpSingle(entry.bin_name);
   }
-
   archive.CloseOutput ();
+
+  for(auto& entry : EntrySystem)
+    CleanUpSingle(entry.bin_name);
+
   return path_to_archive;
 }
 
