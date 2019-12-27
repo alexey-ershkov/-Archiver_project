@@ -1,0 +1,1 @@
+/usr/bin/clang++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/UnitTests.dir/UnitTests_autogen/mocs_compilation.cpp.o CMakeFiles/UnitTests.dir/GTest.cpp.o  -o UnitTests /usr/local/lib/libgtest.a -lpthread libArchiverEngine.a /usr/local/lib/libmagic.dylib 

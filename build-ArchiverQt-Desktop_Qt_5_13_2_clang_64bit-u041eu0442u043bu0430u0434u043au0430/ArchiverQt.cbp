@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ArchiverQt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CMakeModules\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\Applications\;CMake Files\..\..\..\..\..\..\Applications\Qt\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Core\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Quick\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Network\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Widgets\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ArchiverQt">
+				<Option output="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_QML_DEBUG"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_QUICK_LIB"/>
+					<Add option="-DQT_QML_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt_autogen/include"/>
+					<Add directory="/headers"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/lib_headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/./mkspecs/macx-clang"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQuick.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQuick.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQml.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQml.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtNetwork.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtNetwork.framework/Headers"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 ArchiverQt"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ArchiverQt/fast">
+				<Option output="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DQT_QML_DEBUG"/>
+					<Add option="-DQT_CORE_LIB"/>
+					<Add option="-DQT_QUICK_LIB"/>
+					<Add option="-DQT_QML_LIB"/>
+					<Add option="-DQT_NETWORK_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt_autogen/include"/>
+					<Add directory="/headers"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/lib_headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/./mkspecs/macx-clang"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQuick.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQuick.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQml.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtQml.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtNetwork.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtNetwork.framework/Headers"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 ArchiverQt/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ArchiverEngine">
+				<Option output="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/libArchiverEngine.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverEngine_autogen/include"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/./mkspecs/macx-clang"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/headers"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/lib_headers"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 ArchiverEngine"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ArchiverEngine/fast">
+				<Option output="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/libArchiverEngine.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverEngine_autogen/include"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtGui.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/lib/QtCore.framework/Headers"/>
+					<Add directory="/Applications/Qt/5.13.2/clang_64/./mkspecs/macx-clang"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/headers"/>
+					<Add directory="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/lib_headers"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/System/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 ArchiverEngine/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ArchiverQt_autogen">
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 ArchiverQt_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ArchiverEngine_autogen">
+				<Option working_dir="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 ArchiverEngine_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Algorithm.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Archive.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/ArchiveFileReader.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/ArchiveFileWriter.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Archiver.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/CodeReader.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/CodeWriter.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/ConsoleView.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Dearchive.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/EncoderDictionary.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Huffman.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Input.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/LZW.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Output.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Presenter.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/QtView.cpp">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/QtView.h">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Selection.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/Show.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/TypeIdentifier.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/buff.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/lib_headers/IGetFileSize.h">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/main.cpp">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/qml.qrc">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverEngine_autogen/mocs_compilation.cpp">
+			<Option target="ArchiverEngine"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt_autogen/EWIEGA46WW/qrc_qml.cpp">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt_autogen/EWIEGA46WW/qrc_qml.cpp.rule">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/ArchiverQt_autogen/mocs_compilation.cpp">
+			<Option target="ArchiverQt"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/qml.qrc">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/CMakeModules/FindLibMagic.cmake">
+			<Option virtualFolder="CMake Files\CMakeModules\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5/Qt5Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Quick/Qt5QuickConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Quick/Qt5QuickConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Quick\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5QmlConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5QmlConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5QmlConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QDebugMessageServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QLocalClientConnectionFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlDebugServerFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlDebuggerServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlInspectorServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugConnectorFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlNativeDebugServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlPreviewServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQmlProfilerServiceFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QQuickProfilerAdapterFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Qml/Qt5Qml_QTcpServerConnectionFactory.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Qml\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Network/Qt5NetworkConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Network/Qt5NetworkConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Network\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QCocoaIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QMacHeifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QMacJp2Plugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/../../../../../../Applications/Qt/5.13.2/clang_64/lib/cmake/Qt5Widgets/Qt5Widgets_QMacStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\Applications\Qt\5.13.2\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

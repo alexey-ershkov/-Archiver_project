@@ -1,0 +1,8 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/usr/local/Cellar/qt/5.13.2 -G "CodeBlocks - Unix Makefiles" /Users/farcoad/Documents/Deep_C++/Archiver
+-- Found components for LIBMAGIC
+-- LIBMAGIC_ROOT_DIR  = /usr/local
+-- LIBMAGIC_INCLUDES  = /usr/local/include
+-- LIBMAGIC_LIBRARIES = /usr/local/lib/libmagic.dylib
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug
