@@ -31,6 +31,7 @@ Item {
     focus: true
     Keys.onUpPressed: show.view.up()
     Keys.onDownPressed: show.view.down()
+    Keys.onEnterPressed: show.view.enter()
     ShowFiles {
         id:show
         anchors.horizontalCenter: parent.horizontalCenter
@@ -56,7 +57,7 @@ Item {
         font.pointSize: parent.height*0.03
         anchors.leftMargin: parent.width*0.1
         anchors.left: parent.left
-        anchors.bottomMargin: parent.height*0.25
+        anchors.bottomMargin: parent.height*0.1
         anchors.bottom: parent.bottom
 
         onClicked: {
@@ -77,6 +78,7 @@ Item {
                 for (var i = 0; i < fileUrls.length; ++i) {
                     console.log (fileUrls[i])
                     fileModel.append({text: fileUrls[i]})
+                    core.addFiles(fileUrls[i].toString().replace("file://",""))
                 }
 
                 //TODO модель на с++ и отправка файлов в модель
@@ -95,14 +97,15 @@ Item {
         height: parent.height*0.15
         text: qsTr("Заархивировать")
         font.pointSize: parent.height*0.03
-        anchors.bottomMargin: parent.height*0.25
+        anchors.bottomMargin: parent.height*0.1
         anchors.rightMargin: parent.width*0.1
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        enabled: fileModel.count === 0 || showPath.count === 0 ? false :true
+        enabled: fileModel.count === 0 || core.archive_name === "" ? false :true
         onPressed: {
+            save.open();
             console.log ("Archive files event")
-            pageLoader.source = "SuccessMessage.qml"
+
         }
     }
 
@@ -122,25 +125,54 @@ Item {
             console.log("Canceled")
         }
     }
-
-    ProjectButton {
-        id: path_button
-        x: 2
-        y: 287
-        width: parent.width*0.8
-        height: parent.height*0.15
-        text:qsTr("сохранить в")
-        font.pointSize: parent.height*0.03
-        anchors.bottomMargin: parent.height*0.1
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: folder.open()
-    }
     PathModel {
-                id: showPath
+        id: showPath
 
-            }
+    }
 
+    TextField {
+        id: archiverName
+        y: 307
+        text: qsTr("")
+        font.pointSize: parent.height*0.07
+        horizontalAlignment: Text.AlignHCenter
+        anchors.bottomMargin: parent.height*0.25
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: parent.width*0.1
+        anchors.left: parent.left
+        anchors.horizontalCenter: parent.horizontalCenter
+        placeholderText: "Введите имя архива"
+        onTextChanged: {
+            core.archive_name = text
+            console.log(core.archive_name)
+        }
+    }
+
+    FileDialog {
+        id: save
+        title: "Please choose a folder"
+        folder: shortcuts.documents
+        selectMultiple: false
+        selectFolder: true
+        onAccepted: {
+            console.log("dearchive at: " + fileUrls)
+            showPath.clear()
+            showPath.append ({text: fileUrl})
+            core.savepath = fileUrl.toString().replace("file://", "")
+            core.archiveFiles()
+            console.log(core.savepath)
+            core.clear()
+                if (core.success) {
+                    pageLoader.source = "SuccessMessage.qml"
+                } else {
+                    pageLoader.source = "ErrorMessage.qml"
+                }
+
+        }
+        onRejected: {
+            console.log("Canceled")
+        }
+    }
 
 }
 
@@ -151,5 +183,6 @@ Item {
 /*##^##
 Designer {
     D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:73;anchors_y:323}
+D{i:9;anchors_x:143}
 }
 ##^##*/

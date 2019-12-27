@@ -23,7 +23,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width*0.6
         height: parent.height*0.15
-        text: "Успешно! Нажмите для продолжения"
+        text: core.message
         font.pointSize: parent.height*0.03
         anchors.bottomMargin: parent.height*0.15
         anchors.bottom: parent.bottom

@@ -13,13 +13,16 @@ Rectangle{
     property alias view: view
 
 
+    border {
+        width: 2
+        color: Material.accent
 
+    }
 
     ListView {
         id: view
         signal up()
         signal down()
-        signal enter()
 
         onUp: {
             if (view.currentIndex > 0) {
@@ -32,10 +35,6 @@ Rectangle{
                 currentIndex += 1;
             }
         }
-
-
-
-
 
 
         anchors.fill: parent
@@ -63,8 +62,8 @@ Rectangle{
             width: view.width
             height: parent.parent.height*0.15
 
-
             Rectangle {
+
                 focus: true
                 anchors.margins: 5
                 anchors.fill: parent
@@ -79,7 +78,7 @@ Rectangle{
                     anchors.centerIn: parent
                     color: isCurrent ? "white" : Material.accent
                     renderType: Text.NativeRendering
-                    text: model.text.replace(new RegExp("file:\/\/\/([A-Za-z0-9\-_~ ]+\/)+"),"")
+                    text: modelData
                 }
 
                 MouseArea {

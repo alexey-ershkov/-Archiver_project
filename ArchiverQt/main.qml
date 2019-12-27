@@ -2,7 +2,7 @@ import QtQuick 2.5
 import QtQuick.Window 2.5
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.3
-
+import tprk.engine 1.0
 
 
 
@@ -24,7 +24,9 @@ ApplicationWindow {
 
     }
 
-
+    QtView {
+        id:core
+    }
 
 
 
@@ -42,8 +44,9 @@ ApplicationWindow {
 
             id: copyright
             text: qsTr("Created by TPRK team. All rights reserved")
+            horizontalAlignment: Text.AlignHCenter
             font.pointSize: parent.height*0.03
-            anchors.bottomMargin: parent.height*0.05
+            anchors.bottomMargin: parent.height*0.04
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
             color: Material.accent

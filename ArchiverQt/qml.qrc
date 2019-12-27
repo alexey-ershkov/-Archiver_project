@@ -17,5 +17,6 @@
         <file>Success.png</file>
         <file>Error.png</file>
         <file>ErrorMessage.qml</file>
+        <file>FilesInArchive.qml</file>
     </qresource>
 </RCC>

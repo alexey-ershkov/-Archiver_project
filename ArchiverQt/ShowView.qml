@@ -31,16 +31,14 @@ Item {
     focus: true
     Keys.onUpPressed: show.view.up()
     Keys.onDownPressed: show.view.down()
-    ShowFiles {
+    FilesInArchive {
         id:show
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenterOffset: -parent.height*0.165
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width*0.8
         height: parent.height*0.5
-        view.model: FileModel {
-         id:fileModel
-        }
+        view.model: core.files_in_archive
 
     }
 
@@ -61,7 +59,7 @@ Item {
         enabled: showPath.count === 0 ? false :true
         onPressed: {
             console.log ("Archive files event")
-            pageLoader.source = "SuccessMessage.qml"
+            save.open()
         }
     }
 
@@ -72,10 +70,36 @@ Item {
         selectMultiple: false
         selectFolder: false
         onAccepted: {
-            console.log("file would be save at: " + fileUrls)
+            console.log("archive at: " + fileUrls)
             showPath.clear()
             showPath.append ({text: fileUrl})
-            //TODO модель на с++ и отправка файлов в модель
+            core.filepath = fileUrl.toString().replace("file://", "")
+            core.showFiles()
+        }
+        onRejected: {
+            console.log("Canceled")
+        }
+    }
+
+    FileDialog {
+        id: save
+        title: "Please choose a folder"
+        folder: shortcuts.documents
+        selectMultiple: false
+        selectFolder: true
+        onAccepted: {
+            console.log("dearchive at: " + fileUrls)
+            showPath.clear()
+            showPath.append ({text: fileUrl})
+            core.savepath = fileUrl.toString().replace("file://", "")
+            core.dearchiveFiles()
+            console.log(core.savepath);
+            core.clear();
+                if (core.success) {
+                    pageLoader.source = "SuccessMessage.qml"
+                } else {
+                    pageLoader.source = "ErrorMessage.qml"
+                }
         }
         onRejected: {
             console.log("Canceled")

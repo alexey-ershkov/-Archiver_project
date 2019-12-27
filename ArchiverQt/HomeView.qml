@@ -33,7 +33,7 @@ Item{
         width: parent.width*0.7
         height: parent.height*0.15
         anchors.horizontalCenter: parent.horizontalCenter
-        text: qsTr("Открыть существующий архив")
+        text: qsTr("Открыть архив")
         font.pointSize: parent.height*0.03
 
         onClicked: {
