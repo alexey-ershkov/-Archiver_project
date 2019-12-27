@@ -12,7 +12,7 @@ import QtQuick.Controls.Material 2.3
 Item {
     id: element
 
-
+   property bool status: false
 
 
     Text {
@@ -40,8 +40,11 @@ Item {
         width: parent.width*0.8
         height: parent.height*0.5
         view.model: FileModel {
-         id:fileModel
+            id:fileModel
         }
+
+
+
 
     }
 
@@ -81,7 +84,6 @@ Item {
                     core.addFiles(fileUrls[i].toString().replace("file://",""))
                 }
 
-                //TODO модель на с++ и отправка файлов в модель
             }
             onRejected: {
                 console.log("Canceled")
@@ -158,7 +160,7 @@ Item {
             console.log("dearchive at: " + fileUrls)
             showPath.clear()
             showPath.append ({text: fileUrl})
-            core.savepath = fileUrl.toString().replace("file://", "")
+            core.savepath = fileUrl.toString().replace("file://", "")  
             core.archiveFiles()
             console.log(core.savepath)
             core.clear()
@@ -183,6 +185,6 @@ Item {
 /*##^##
 Designer {
     D{i:0;autoSize:true;height:480;width:640}D{i:1;anchors_height:200;anchors_width:200;anchors_x:73;anchors_y:323}
-D{i:9;anchors_x:143}
+D{i:4;anchors_y:-40}D{i:10;anchors_x:143}
 }
 ##^##*/

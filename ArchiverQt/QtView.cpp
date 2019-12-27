@@ -16,7 +16,6 @@ bool QtView::send_message(Message message, std::ostream &) {
 bool QtView::show_files(std::vector<std::string> files, std::ostream &output) {
     m_files_in_archive.clear();
     for (auto it : files) {
-        std::cout << it << std::endl;
         m_files_in_archive.append(QString::fromStdString(it));
     }
     emit archiveFilesChanged(m_files_in_archive);
@@ -84,8 +83,7 @@ void QtView::set_archive_name(const QString &archive_name) {
 
 void QtView::addFiles(const QString &input) {
     m_files_to_archive.emplace_back(input.toStdString());
-    for (auto it : m_files_to_archive)
-        std::cout << it << std::endl;
+
 }
 
 void QtView::archiveFiles() {
