@@ -1,11 +1,16 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "QtView.h"
+#include <fstream>
 
 
 
 int main(int argc, char *argv[])
 {
+    std::ofstream fout;
+    fout.open("selection.log");
+    fout.clear();
+    fout.close();
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);

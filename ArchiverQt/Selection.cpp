@@ -81,6 +81,7 @@ void Selection::SetDefaultAlg() {
 
 
 void Selection::ChooseAlgorithm() {
+    fout << "\n===========================================\n";
     fout << "Выбираю алгоритм...\n";
     for (auto &it : arrayAlgos){
         if(it->ShouldChoose(typeFile)){
