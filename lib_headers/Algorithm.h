@@ -23,7 +23,7 @@
 class Algorithm {
 public:
     Algorithm();
-    ~Algorithm() = default;
+    virtual ~Algorithm() = default;
     double compressionRatio;
     double Compress(Input& input, Output& output);
     void Decompress(Input& input, Output& output);

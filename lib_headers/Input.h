@@ -14,16 +14,12 @@
 typedef unsigned char byte;
 
 class Input : public IInputStream {
-private:
-    std::string filepath;
-
-    size_t count;
 public:
-    std::string GetFilePath() override;
-    std::ifstream fin;
     Input(const Input &input);
     Input(const std::string _filepath);
     ~Input();
+    std::string GetFilePath() override;
+    std::ifstream fin;
     bool isFileOpenedSuccesful;
     bool isFileEmpty();
     void RemoveFile();
@@ -31,7 +27,10 @@ public:
     bool Read(byte& value);
     size_t GetCount() const;
 
+private:
+    std::string filepath;
 
+    size_t count;
 };
 
 

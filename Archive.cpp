@@ -1,6 +1,3 @@
-//
-// Created by Алексей on 2019-11-17.
-//
 
 
 
@@ -44,7 +41,7 @@ bool Archive::can_handle(Request request) {
 }
 
 std::string Archive::new_name(std::string &CompressedFileName) {
-
+    
     std::string TypeFile;
     std::string NameFileWithoutExtension;
 

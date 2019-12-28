@@ -138,7 +138,6 @@ void ArchiveFileWriter::CloseOutput(){
 void ArchiveFileWriter::OpenOutput(){
   fout.open (filepath);
   if (!fout.is_open ()){
-      std::cout << "can't open or create file" << filepath << std::endl;
       fout.close ();
     }
 }
