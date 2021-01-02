@@ -1,0 +1,8 @@
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/ArchiveConsole.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/UnitTests.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/ArchiverEngine.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/ArchiveConsole_autogen.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/UnitTests_autogen.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/cmake-build-debug/CMakeFiles/ArchiverEngine_autogen.dir

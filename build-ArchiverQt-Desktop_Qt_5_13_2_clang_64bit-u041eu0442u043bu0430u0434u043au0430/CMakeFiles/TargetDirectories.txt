@@ -1,0 +1,6 @@
+/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/rebuild_cache.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/edit_cache.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/ArchiverQt.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/ArchiverEngine.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/ArchiverQt_autogen.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/build-ArchiverQt-Desktop_Qt_5_13_2_clang_64bit-u041eu0442u043bu0430u0434u043au0430/CMakeFiles/ArchiverEngine_autogen.dir

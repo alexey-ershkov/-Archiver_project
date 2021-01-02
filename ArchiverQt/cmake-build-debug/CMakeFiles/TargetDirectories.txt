@@ -1,0 +1,6 @@
+/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/cmake-build-debug/CMakeFiles/ArchiverQt.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/cmake-build-debug/CMakeFiles/ArchiverEngine.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/cmake-build-debug/CMakeFiles/ArchiverQt_autogen.dir
+/Users/farcoad/Documents/Deep_C++/Archiver/ArchiverQt/cmake-build-debug/CMakeFiles/ArchiverEngine_autogen.dir
